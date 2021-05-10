@@ -2,6 +2,7 @@ h1 {
     position: absolute;
     top: 75%;
     left: 50%;
+    right: 50%;
     font-family: 'Bilbo', cursive;
     font-size: 70pt;
 }
