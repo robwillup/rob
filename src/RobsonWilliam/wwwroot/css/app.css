@@ -42,9 +42,28 @@ a, .btn-link {
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+fast-design-system-provider {
+    display: inline-block;
+    }
+    
+    fast-card {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    }
+    
+    h2 {
+    font-size: var(--type-ramp-plus-5-font-size);
+    line-height: var(--type-ramp-plus-5-line-height);
+    }
+    
+    fast-card > fast-button {
+    align-self: flex-end;
     }
