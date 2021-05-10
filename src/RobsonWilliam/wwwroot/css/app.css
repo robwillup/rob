@@ -50,7 +50,7 @@ a, .btn-link {
 }
 
 fast-design-system-provider {
-    display: inline-block;
+    display: block;
     }
     
     fast-card {
