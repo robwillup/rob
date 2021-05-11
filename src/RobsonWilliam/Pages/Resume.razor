@@ -1,9 +1,5 @@
 @page "/resume"
 
-<div class="contact">
-    <i class="fas fa-envelope-open-text"></i>
-</div>
-
 <fast-tabs>
     <fast-tab slot="summary">Summary</fast-tab>
     <fast-tab slot="experience">Experience</fast-tab>
@@ -11,8 +7,7 @@
     <fast-tab slot="certification">Certifications</fast-tab>
     <fast-tab slot="skills">Skills</fast-tab>
     <fast-tab-panel slot="summary">
-        <div class="summary">
-            <h1>Summary</h1>
+        <div class="tab-panel-content">            
             <p>Backend software developer with over 4 years of industry experience.
             .NET 5+ and .NET Core, Go, Azure, Git, GitHub, Azure DevOps, OpenID Connect, OAuth 2.0, Docker,
             Kubernetes, Oracle, MongoDB, REST and gRPC are some of the technologies I have working experience with.
@@ -20,8 +15,70 @@
             IoT, gRPC and DevOps</p>
         </div>
     </fast-tab-panel>
-    <fast-tab-panel slot="experience">Tab panel 2</fast-tab-panel>
-    <fast-tab-panel slot="education">Tab panel 3</fast-tab-panel>
+    <fast-tab-panel slot="experience">
+        <div class="tab-panel-content">
+            <h3>Software Developer - ExxonMobil</h3>
+            <h4>May 2018 - April 2021 (3 years)</h4>
+
+            <p>I design, develop and deliver several solutions in the enterprise and cyber security space.
+            Led the design and development of a SAST (static application security testing) tool that leverages
+            different open-source components to scan source code in several programming languages to find
+            security issues, provide suggested solutions and enable DevSecOps.
+            This application has been written in C# (.NET Core and 5) and Golang. It has been designed and
+            delivered with a distributed and cloud native architecture that includes web APIs, worker services, a
+            document database and a CLI tool. Some of the technologies I have used include Azure, Mongo DB,
+            App Services, Function Apps, GitHub Actions, Azure DevOps, Docker and security specifications such
+            as OAuth 2 and OpenID Connect.
+            Still in cyber security, I have designed and developed a web application for Threat Modeling which
+            enables different teams to learn about security requirements and start implementing those in the earlier
+            stages of software development.
+            This application has been created using C#, .NET 5 and Blazor Server. It is cloud native, scalable and
+            provides integrations with IDEs and CI pipelines.
+            Created a desktop application to monitor USB posts and automatically scan all files when a storage
+            device is plugged in. This desktop app was created with C# and .NET Core 3.1. It was built, tested, and
+            packaged in Azure DevOps pipelines and sent to App Center for distribution to the clients.
+            Also created several other apps using Docker, Kubernetes and OpenShift.
+            Developed a frontend Angular app and an Azure DevOps (VSTS) extension using TypeScript.
+            Led the implementation of modern authentication protocols in our applications, such as OpenID
+            Connect and OAuth2.
+            Presented about software security development tools and modern authentication protocols in Bangkok
+            and Buenos Aires.
+            </p>
+
+            <h3>Software Developer - Fundação Sanepar de Assistência Social</h3>
+            <h4>May 2017 - April 2018 (1 year)</h4>
+
+            <p>At this company I had the amazing opportunity to quickly enhance my skills and experience as a
+            Software Developer.
+            I was exposed to some of the most popular technologies and best programming practices.
+            Some of which were C#, .NET, MVC, Angular, Ionic, etc.
+            My team was also great to work with and I learned a lot from them.
+            </p>
+
+            <h3>Trainee - Wipro</h3>
+            <h4>April 2016 - April 2017 (1 year)</h4>
+
+            <p>Worked as a developer moderator for the MSDN (Microsoft Developer Network) forum.
+            In this role, I had the opportunity to research and learn several Microsoft technologies for software
+            development, such as C#, .NET, Visual Studio, Azure and others.
+            My responsibility was to interact with .NET developers by moderating and providing answers to their
+            questions, which were all related to software development.
+            Another great experience I had in this role was opportunity to work with Microsoft experts and MVPs</p>
+
+            <h3>Software Developer - ExxonMobil</h3>
+            <h4>January 2015 - August 2015 (8 months)</h4>
+
+            <p>Joined ExxonMobil as an intern software developer.
+            Worked with web development designing and writing a frontend web site with HTML, CSS and
+            JavaScript.
+            Also developed a C# application that used the Erlang formula to estimate call wait time.</p>
+        </div>
+    </fast-tab-panel>
+    <fast-tab-panel slot="education">
+        <div class="tab-panel-content">
+
+        </div>
+    </fast-tab-panel>
     <fast-tab-panel slot="certification">Tab panel 2</fast-tab-panel>
     <fast-tab-panel slot="skills">Tab panel 3</fast-tab-panel>
 </fast-tabs>
