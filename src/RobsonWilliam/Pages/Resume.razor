@@ -1,5 +1,27 @@
 @page "/resume"
 
-<h1>Experience</h1>
+<div class="contact">
+    <i class="fas fa-envelope-open-text"></i>
+</div>
 
-<p>With over 5 years of professional experience, I am a created and dedicated software developer committed to technical excellency and high-quality software engineering.</p>
+<fast-tabs>
+    <fast-tab slot="summary">Summary</fast-tab>
+    <fast-tab slot="experience">Experience</fast-tab>
+    <fast-tab slot="education">Education</fast-tab>
+    <fast-tab slot="certification">Certifications</fast-tab>
+    <fast-tab slot="skills">Skills</fast-tab>
+    <fast-tab-panel slot="summary">
+        <div class="summary">
+            <h1>Summary</h1>
+            <p>Backend software developer with over 4 years of industry experience.
+            .NET 5+ and .NET Core, Go, Azure, Git, GitHub, Azure DevOps, OpenID Connect, OAuth 2.0, Docker,
+            Kubernetes, Oracle, MongoDB, REST and gRPC are some of the technologies I have working experience with.
+            Constantly learning, working or tinkering with technologies such as .NET, Go, Rust, Elixir, Docker, Kubernetes,
+            IoT, gRPC and DevOps</p>
+        </div>
+    </fast-tab-panel>
+    <fast-tab-panel slot="experience">Tab panel 2</fast-tab-panel>
+    <fast-tab-panel slot="education">Tab panel 3</fast-tab-panel>
+    <fast-tab-panel slot="certification">Tab panel 2</fast-tab-panel>
+    <fast-tab-panel slot="skills">Tab panel 3</fast-tab-panel>
+</fast-tabs>
