@@ -1,13 +1,20 @@
-.home-text {       
+.home-text {
+    position: absolute;
+    margin: 20%;
+    margin-left: 5%;
+    margin-top: 35%;
+}
+
+.home-text > h1 {
     font-family: 'Bilbo', cursive;
-    font-size: 70pt;
+    font-size: 60pt;
     white-space: nowrap;
 }
 
-.home-page {
-    flex-grow: 1;    
+.home-page {    
     background: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0)), url("https://raw.githubusercontent.com/RWillup/Mithrandir/master/assets/images/banner.png");
-    background-size: cover;
+    background-size:cover;
     background-repeat: no-repeat;      
     height: 100%;  
+    text-align: center;      
 }
