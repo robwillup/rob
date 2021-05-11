@@ -1,8 +1,13 @@
-h1 {
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    right: 50%;
+.home-text {       
     font-family: 'Bilbo', cursive;
     font-size: 70pt;
+    white-space: nowrap;
+}
+
+.home-page {
+    flex-grow: 1;    
+    background: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0)), url("https://raw.githubusercontent.com/RWillup/Mithrandir/master/assets/images/banner.png");
+    background-size: cover;
+    background-repeat: no-repeat;      
+    height: 100%;  
 }
