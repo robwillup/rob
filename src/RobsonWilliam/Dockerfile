@@ -3,12 +3,14 @@ WORKDIR /app
 COPY RobsonWilliam.csproj .
 RUN dotnet restore "RobsonWilliam.csproj"
 COPY . .
-RUN dotnet build "RobsonWilliam.csproj" -c Release -o build
 
 FROM build AS publish
+WORKDIR /app
 RUN dotnet publish "RobsonWilliam.csproj" -c Release -o publish
 
 FROM nginx:alpine AS final
 WORKDIR /var/www/web
+RUN ls -al
 COPY --from=publish /app/publish/wwwroot .
+RUN ls -al
 COPY nginx.conf /etc/nginx/nginx.conf
