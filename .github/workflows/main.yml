@@ -36,7 +36,7 @@ jobs:
           logout: true # optional, default is true
       
       - name: Docker Build
-        run: docker build -t robwillup/robsonwillup:latest src/RobsonWilliam
+        run: docker build -t robwillup/rob:latest src/RobsonWilliam
         
       - name: Docker Push
-        run: docker push robwillup/robsonwilliam:latest
+        run: docker push robwillup/rob:latest
