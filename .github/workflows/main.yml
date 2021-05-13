@@ -34,3 +34,6 @@ jobs:
           password: ${{secrets.DOCKER_HUB_PW}}
           # Log out from the Docker registry at the end of a job
           logout: true # optional, default is true
+      
+      - name: Docker Build
+        run: docker build -t robwillup/robsonwillup:latest src/RobsonWilliam
