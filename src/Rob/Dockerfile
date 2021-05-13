@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /app
-COPY RobsonWilliam.csproj .
+COPY Rob.csproj .
 RUN dotnet restore
 COPY . .
 
