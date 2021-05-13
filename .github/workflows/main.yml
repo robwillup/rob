@@ -31,6 +31,6 @@ jobs:
         with:
           # Username used to log against the Docker registry
           username: robwillup          
-          password: ${{DOCKER_HUB_PW}}
+          password: ${{secrets.DOCKER_HUB_PW}}
           # Log out from the Docker registry at the end of a job
           logout: true # optional, default is true
