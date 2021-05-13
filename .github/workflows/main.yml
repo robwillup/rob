@@ -37,3 +37,6 @@ jobs:
       
       - name: Docker Build
         run: docker build -t robwillup/robsonwillup:latest src/RobsonWilliam
+        
+      - name: Docker Push
+        run: docker push robwillup/robsonwilliam:latest
