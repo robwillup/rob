@@ -16,27 +16,24 @@ jobs:
     steps:      
       - uses: actions/checkout@v2
       
-      - name: Run a one-line script
-        run: echo Hello, world!
-      
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      
-      - name: Docker Login
-        # You may pin to the exact commit or the version.
-        # uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
-        uses: docker/login-action@v1.9.0
-        with:
-          # Username used to log against the Docker registry
-          username: robwillup          
-          password: ${{secrets.DOCKER_HUB_PW}}
-          # Log out from the Docker registry at the end of a job
-          logout: true # optional, default is true
+      - name: Set up gcloud Cloud SDK environment    
+        uses: google-github-actions/setup-gcloud@v0.2.0
+        with:              
+          service_account_email: ${{secrets.GCP_EMAIL}}
+    # Service account key to use for authentication. This should be the JSON
+    #formatted private key which can be exported from the Cloud Console. The
+    #value can be raw or base64-encoded.
+          service_account_key: ${{secrets.GCP_KEY}}    
+          project_id: ${{secrets.PROJECT_ID}}
+    # Export the provided credentials as Google Default Application Credentials.
+    #This will make the credentials available to later steps via the
+    #GOOGLE_APPLICATION_CREDENTIALS environment variable. Future steps that
+    #consume Default Application Credentials will automatically detect and use
+    #these credentials.
+          export_default_credentials: true
       
       - name: Docker Build
-        run: docker build -t robwillup/rob:latest src/RobsonWilliam
+        run: docker build -t robwillup/rob:latest src/rob
         
       - name: Docker Push
         run: docker push robwillup/rob:latest
