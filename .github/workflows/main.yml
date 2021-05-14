@@ -35,5 +35,8 @@ jobs:
       - name: Docker Build
         run: docker build -t robwillup/rob:latest src/rob
         
+      - name: Docker Tag
+        run: docker tag robwillup/rob:latest us-west2-docker.pkg.dev/singular-glow-313017/robwillup/rob
+        
       - name: Docker Push
-        run: docker push robwillup/rob:latest
+        run: docker push us-west2-docker.pkg.dev/singular-glow-313017/robwillup/rob
