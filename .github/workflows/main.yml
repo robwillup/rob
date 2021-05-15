@@ -26,13 +26,6 @@ jobs:
           
       - name: Generate key
         run: echo $GCP_KEY > ~/key.json
-        
-      - name: testing
-        run: |
-          echo "TESTING FILE CONTENT"
-          cat ~/key.json
-          echo "TESTING ENV"
-          echo $GOOGLE_APPLICATION_CREDENTIALS
       
       - name: Docker Build
         run: docker build -t robwillup/rob:latest src/Rob
