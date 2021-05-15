@@ -20,23 +20,30 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0.2.0
         with:              
           service_account_email: ${{secrets.GCP_EMAIL}}
-    # Service account key to use for authentication. This should be the JSON
-    #formatted private key which can be exported from the Cloud Console. The
-    #value can be raw or base64-encoded.
           service_account_key: ${{secrets.GCP_KEY}}    
           project_id: ${{secrets.PROJECT_ID}}
-    # Export the provided credentials as Google Default Application Credentials.
-    #This will make the credentials available to later steps via the
-    #GOOGLE_APPLICATION_CREDENTIALS environment variable. Future steps that
-    #consume Default Application Credentials will automatically detect and use
-    #these credentials.
           export_default_credentials: true
+          
+      - name: Generate key
+        run: echo $GCP_KEY > ~/key.json
+        
+      - name: testing
+        run: |
+          echo "TESTING FILE CONTENT"
+          cat ~/key.json
+          echo "TESTING ENV"
+          echo $GOOGLE_APPLICATION_CREDENTIALS
       
       - name: Docker Build
         run: docker build -t robwillup/rob:latest src/Rob
         
       - name: Docker Tag
         run: docker tag robwillup/rob:latest us-west2-docker.pkg.dev/singular-glow-313017/robwillup/rob:latest
-        
+      
+      - name: Docker Auth with GCP
+        run: |
+          docker login -u oauth2accesstoken -p "$(gcloud auth application-default print-access-token)" \
+          https://us-west2-docker.pkg.dev
+      
       - name: Docker Push
         run: docker push us-west2-docker.pkg.dev/singular-glow-313017/robwillup/rob:latest
