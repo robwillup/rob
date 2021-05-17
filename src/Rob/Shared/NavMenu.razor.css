@@ -101,6 +101,7 @@ text-decoration: none;
 clear: both;
 max-height: 0;
 transition: max-height .2s ease-out;
+padding-top: 4px;
 }
 
 /* menu icon */
