@@ -19,6 +19,26 @@ a, .btn-link {
     color: #0366d6;
 }
 
+/* unvisited link */
+a:link {
+    color: #b3e6ff;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: #b3e6ff;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: #e6f7ff;
+  }
+  
+  /* selected link */
+  a:active {
+    color: #1ab2ff;
+  }
+
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;

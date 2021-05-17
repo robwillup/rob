@@ -1,24 +1,30 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <ul class="nav">
-        <li class="nav-item px-3">
+﻿<header class="top-menu">
+    <a href="/" class="logo">Robson William</a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn">
+        <span class="navicon"></span>        
+    </label>
+
+    <ul class="menu">
+        <li>
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
+                Home
             </NavLink>
         </li>
-        <li class="nav-item px-3">
+        <li>
             <NavLink class="nav-link" href="resume">
-                <span class="oi oi-plus" aria-hidden="true"></span> About
+                About
             </NavLink>
         </li>
-        <li class="nav-item px-3">
+        <li>
             <NavLink class="nav-link" href="contact">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Contact
+                Contact
             </NavLink>
         </li>
     </ul>
-</div>
+</header>
 
-@code {
+@* @code {
     private bool collapseNavMenu = true;
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
@@ -27,4 +33,4 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
-}
+} *@
