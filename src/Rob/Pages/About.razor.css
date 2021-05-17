@@ -1,4 +1,6 @@
 .tab-panel-content {
     display: block !important;
     padding: 2em;
+    padding-left: 4em;
+    padding-right: 8em;
 }
