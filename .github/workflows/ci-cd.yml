@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
@@ -40,3 +40,8 @@ jobs:
       
       - name: Docker Push
         run: docker push us-west2-docker.pkg.dev/singular-glow-313017/robwillup/rob:latest
+        
+      - name: Deploy Image
+        run: |
+          gcloud run deploy rob --image us-west2-docker.pkg.dev/singular-glow-313017/robwillup/rob:latest \
+          --platform=managed --region=23
