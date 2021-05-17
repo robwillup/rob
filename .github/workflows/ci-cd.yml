@@ -44,4 +44,4 @@ jobs:
       - name: Deploy Image
         run: |
           gcloud run deploy rob --image us-west2-docker.pkg.dev/singular-glow-313017/robwillup/rob:latest \
-          --platform=managed --region=us-west2
+          --platform=managed --region=us-west2 --service-account=github@singular-glow-313017.iam.gserviceaccount.com
