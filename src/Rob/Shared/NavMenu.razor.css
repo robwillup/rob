@@ -2,6 +2,10 @@ label {
     margin-bottom: 0;
 }
 
+.menu {
+    float: right;
+}
+
 .top-menu ul {
     margin: 0;
     padding: 0;
@@ -71,10 +75,6 @@ label {
     width: 100%;
 }
 
-.menu {
-    float: right;
-}
-
 .top-menu .menu-icon .navicon:before {
     top: 5px;
 }
@@ -90,6 +90,7 @@ label {
 }
 
 .top-menu .menu-btn:checked ~ .menu {
+    margin-top: -2px;
     max-height: 240px;
     float: right;
     background-image: linear-gradient(90deg, rgb(0, 77, 107) 0%, rgb(0, 68, 95) 70%);
