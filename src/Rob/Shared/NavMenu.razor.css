@@ -94,6 +94,7 @@ label {
     max-height: 240px;
     float: right;
     background-image: linear-gradient(90deg, rgb(0, 77, 107) 0%, rgb(0, 68, 95) 70%);
+    width: 40%;
 }
 
 .top-menu .menu-btn:checked ~ .menu-icon .navicon {
@@ -117,8 +118,11 @@ label {
 /* 32em = 768px */
 
 @media (min-width: 32em) {
-    .top-menu li {
+    .top-menu ul {
         float: right;
+    }
+    .top-menu li {
+        float: left;
     }
     .top-menu li a {
         padding: 20px 30px;    
