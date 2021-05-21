@@ -16,12 +16,19 @@
 }
 
 .home-text > h1{
-    font-family: 'Bilbo', cursive;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;    
     font-size: 60pt;
     bottom: 10%;
+    float: right;
+    margin-right: 5rem;
 }
 
 img {
     object-fit: cover;
     width: 100%;
+}
+
+fast-card {
+    float: right;
 }
