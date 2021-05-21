@@ -1,19 +1,24 @@
+.home-page {                
+    height: 100%;
+    width: 100% ;  
+    position: relative;
+    text-align: center;
+}
+
 .home-text {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    margin: 20%;
-    margin-left: 5%;
-    margin-top: 35%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-image: linear-gradient(to right bottom, transparent, black);
 }
 
 .home-text > h1{
     font-family: 'Bilbo', cursive;
     font-size: 60pt;
-}
-
-.home-page {                
-    height: 100%;
-    width: 100% ;  
-    text-align: center;       
+    bottom: 10%;
 }
 
 img {
