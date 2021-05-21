@@ -15,15 +15,6 @@
     background-image: linear-gradient(to right bottom, transparent, black);
 }
 
-.home-text > h1{
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: bold;    
-    font-size: 60pt;
-    bottom: 10%;
-    float: right;
-    margin-right: 5rem;
-}
-
 img {
     object-fit: cover;
     width: 100%;
@@ -31,4 +22,23 @@ img {
 
 fast-card {
     float: right;
+    width: 30%;
+}
+
+#card-image{
+    filter: grayscale(70%);
+}
+
+#greeting{
+    font-family: 'Bilbo', cursive;
+    font-weight: bold;    
+    font-size: 30pt;
+    bottom: 10%;
+    float: right;
+    display: inline;  
+    width: 100%;  
+}
+
+#card-content {
+    padding: 0 5px 5px; color: var(--neutral-foreground-rest);
 }
