@@ -20,25 +20,22 @@ img {
     width: 100%;
 }
 
-fast-card {
-    float: right;
-    width: 30%;
-}
-
-#card-image{
+.card-image{
     filter: grayscale(70%);
 }
 
-#greeting{
-    font-family: 'Bilbo', cursive;
-    font-weight: bold;    
-    font-size: 30pt;
+.greeting{     
+    margin-top: 1rem;    
     bottom: 10%;
     float: right;
     display: inline;  
     width: 100%;  
 }
 
-#card-content {
-    padding: 0 5px 5px; color: var(--neutral-foreground-rest);
+.card-content {
+    background-color: #181818;
+    padding: 0 2rem 2rem; color: var(--neutral-foreground-rest);
+    float: right;
+    width: 30%;
+    height: 100%;
 }
