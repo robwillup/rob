@@ -1,7 +1,8 @@
-.tab-panel-content {
+.about {
     display: block !important;
     padding: 2em;
     padding-left: 4em;
     padding-right: 8em;
-    text-align: left;    
+    text-align: left;
+    margin-bottom: 1rem;
 }

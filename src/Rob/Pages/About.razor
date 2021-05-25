@@ -1,11 +1,13 @@
 @page "/about"
 
-<fast-tabs>
-    <fast-tab slot="summary">Summary</fast-tab>
-    <fast-tab slot="experience">Experience</fast-tab>    
-    <fast-tab slot="skills">Skills</fast-tab>
-    <fast-tab-panel slot="summary">
-        <div class="tab-panel-content">            
+<div class="about">
+    <button @onclick="@(() => SetTabID("summary"))">Summary</button>
+    <button @onclick="@(() => SetTabID("experience"))">Experience</button>
+    <button @onclick="@(() => SetTabID("skills"))">Skills</button>
+
+    @if(TabID == "summary")
+    {
+        <div id="summary">            
             <p>
                 I am a backend software developer with over 4 years of industry experience.
                 <br>
@@ -18,9 +20,10 @@
                 IoT, gRPC and DevOps
             </p>
         </div>
-    </fast-tab-panel>
-    <fast-tab-panel slot="experience">
-        <div class="tab-panel-content">
+    }
+    else if (TabID == "experience")
+    {
+        <div id="experience">
             <h3>Software Developer - ExxonMobil</h3>
             <h5>May 2018 - April 2021 (3 years)</h5>
 
@@ -98,6 +101,9 @@
             JavaScript.
             Also developed a C# application that used the Erlang formula to estimate call wait time.</p>
         </div>
-    </fast-tab-panel>
-    <fast-tab-panel slot="skills">Coming soon...</fast-tab-panel>
-</fast-tabs>
+    }
+    else if(TabID == "skills")
+    {
+        <div id="skills">Coming soon...</div>
+    }
+</div>
