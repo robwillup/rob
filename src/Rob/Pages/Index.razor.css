@@ -4,6 +4,7 @@
     text-align: center;
     background-image: linear-gradient(to bottom, transparent, #181818), url("https://raw.githubusercontent.com/RWillup/Mithrandir/master/assets/images/banner.png");
     background-size: cover;
+    max-height: 80vh;
 }
 
 .card-image{
