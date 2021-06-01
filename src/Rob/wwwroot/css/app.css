@@ -3,6 +3,14 @@ html, body {
     background-color: #181818;
 }
 
+h1 {
+    color: #00B4FB;
+}
+
+p {
+    color:lightsteelblue;
+}
+
 a, .btn-link {
     color: #0366d6;
 }
