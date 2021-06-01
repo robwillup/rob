@@ -2,14 +2,14 @@
     display: block !important;
     padding: 2em;
     padding-left: 4em;
-    padding-right: 8em;
+    padding-right: 4em;
     text-align: left;
     margin-bottom: 1rem;
 }
 
 .content{
     text-align: left;
-    margin: 2rem 10rem 2rem 0rem;
+    margin: 2rem 2rem 2rem 0rem;
 }
 
 h3 {
@@ -18,4 +18,12 @@ h3 {
 
 h5 {
     color: #9B4DCA;
+}
+
+button {
+    min-width: 15rem;
+}
+
+p {
+    color:lightsteelblue;
 }
