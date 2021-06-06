@@ -6,16 +6,21 @@
     <h3>Loading...</h3>
 }
 else 
-{
-    <h2>Coming soon...</h2>
-    <ul>
-        @foreach (PostPreview postPreview in Posts)
-        {
-            <li>
-                <h3>@postPreview.title</h3>
-                <h4>@postPreview.date</h4>
-                <h4>@postPreview.tags</h4>
-            </li>        
-        }
-    </ul>
+{    
+    <div class="table">
+        <ul>
+            @foreach (PostPreview postPreview in Posts)
+            {
+                <li>                           
+                    <img src="@postPreview.image" alt="">       
+                    <h3>@postPreview.title</h3>                    
+                    <p>
+                        Posted on: @postPreview.date.ToShortDateString()
+                        <br>
+                        Tags: @postPreview.tags
+                    </p>                    
+                </li>        
+            }
+        </ul>
+    </div>
 }
