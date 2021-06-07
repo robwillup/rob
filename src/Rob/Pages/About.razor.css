@@ -23,3 +23,7 @@ h5 {
 button {
     min-width: 15rem;
 }
+
+img {
+    max-width: 28rem;
+}
