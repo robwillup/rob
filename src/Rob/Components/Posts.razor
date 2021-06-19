@@ -2,7 +2,7 @@
     <ul>
         @foreach (PostPreview postPreview in PostList)
         {
-            <li>                           
+            <li @onclick="@(() => OnPostSelected(postPreview.title))">                           
                 <img src="@postPreview.image" alt="">       
                 <h3>@postPreview.title</h3>                    
                 <p>

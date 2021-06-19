@@ -16,6 +16,12 @@ namespace Rob.Pages
         [Parameter]
         public PostPreview[] PostItems { get; set; }
 
+        [Parameter]
+        public PostContent OpenPost { get; set; }
+
+        [Parameter]
+        public string PostTitle { get; set; }
+
         protected override async Task OnInitializedAsync()
         {
             PostItems = await Http.GetFromJsonAsync<PostPreview[]>("sample-data/post-list.json");

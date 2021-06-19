@@ -4,7 +4,10 @@
 {
     <h3>Loading...</h3>
 }
-else 
+else if(string.IsNullOrEmpty(PostTitle))
 {
-    <Posts @bind-PostList="PostItems"></Posts>
+    <Posts @bind-PostList="PostItems" @bind-PostTitle="PostTitle"></Posts>
+}
+else {
+    <Post @bind-PostTitle="PostTitle"/>
 }

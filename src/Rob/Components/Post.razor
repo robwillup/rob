@@ -1,0 +1,29 @@
+@using Microsoft.AspNetCore.Components;
+
+@if(OpenPost == null) 
+{
+    <h3>Loading...</h3>
+}
+else 
+{
+    <h1>@OpenPost.title</h1>
+    <h2>@OpenPost.subTitle</h2>
+    <p>@OpenPost.text</p>
+}
+
+@code {
+    public PostContent OpenPost { get; set; }
+
+    [Inject]
+    public HttpClient Http { get; set; }
+
+    [Parameter]
+    public string PostTitle { get; set; }
+
+    [Parameter]
+    public EventCallback<string> PostTitleChanged { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        OpenPost = await Http.GetFromJsonAsync<PostContent>("sample-data/post.json");
+    }
+}
