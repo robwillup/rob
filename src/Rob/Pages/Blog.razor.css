@@ -1,39 +1,4 @@
-ul {            
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li {        
-    width: 30rem;
-    height: 35rem;    
-    padding: 1rem;
-    float: left;
-    margin: 1rem;
-    background-color: #2e2e2e;    
-    text-align: center;
-    position: relative;
-}
-
 h3 {
     margin-top: 1rem;
     color: #00B4FB;
-}
-
-img {
-    width: 15rem;
-}
-
-p {    
-    position: absolute;
-    bottom: 2rem;    
-    height: 1rem;
-    font-size:9pt;
-    text-align: left;  
-}
-
-.table {
-    display: table;
-    padding: 1rem 1rem 0 1rem;
 }

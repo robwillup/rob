@@ -1,26 +1,10 @@
 @page "/blog"
-@using Models
 
-@if(Posts == null)
+@if(PostItems == null)
 {
     <h3>Loading...</h3>
 }
 else 
-{    
-    <div class="table">
-        <ul>
-            @foreach (PostPreview postPreview in Posts)
-            {
-                <li>                           
-                    <img src="@postPreview.image" alt="">       
-                    <h3>@postPreview.title</h3>                    
-                    <p>
-                        Posted on: @postPreview.date.ToShortDateString()
-                        <br>
-                        Tags: @postPreview.tags
-                    </p>                    
-                </li>        
-            }
-        </ul>
-    </div>
+{
+    <Posts @bind-PostList="PostItems"></Posts>
 }

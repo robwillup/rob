@@ -14,11 +14,11 @@ namespace Rob.Pages
         public HttpClient Http { get; set; }
         
         [Parameter]
-        public PostPreview[] Posts { get; set; }
+        public PostPreview[] PostItems { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            Posts = await Http.GetFromJsonAsync<PostPreview[]>("sample-data/post-list.json");
+            PostItems = await Http.GetFromJsonAsync<PostPreview[]>("sample-data/post-list.json");
         }
     }
 }
