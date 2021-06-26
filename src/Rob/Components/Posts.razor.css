@@ -3,11 +3,12 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    padding-left: 3rem;
 }
 
 li {        
     cursor: pointer;
-    width: 30rem;
+    width: 32rem;
     height: 35rem;    
     padding: 1rem;
     float: left;

@@ -19,5 +19,26 @@
         "id":"6d1e5415d4fdf",
         "image":"https://img.icons8.com/color/452/c-programming.png",
         "tags":"C, certification, portfolio"
+    },
+    {
+        "title":"SICP Helped me Become a Better Developer",
+        "date":"2021-06-26",
+        "id":"5d1e5415d4fdf",
+        "image":"https://upload.wikimedia.org/wikipedia/commons/8/81/Sicp_js.png",
+        "tags":"programming, algorithms, Scheme"
+    },
+    {
+        "title":"Functional Programming Basic Concepts",
+        "date":"2021-06-26",
+        "id":"3d1e5415d4fdf",
+        "image":"https://cdn-media-1.freecodecamp.org/images/Y6fyO5BaoggNQCwhwqEMevTkJvRvcaCI3kHu",
+        "tags":"Functional Programming, Elixir"
+    },
+    {
+        "title":"Why Should We Learn BigO Notation",
+        "date":"2021-06-26",
+        "id":"6d1e5415d4fdf",
+        "image":"https://assets.digitalocean.com/articles/alligator/js/big-o-notation/o-complexity.png",
+        "tags":"BigO, algorithms, data structures"
     }
 ]
