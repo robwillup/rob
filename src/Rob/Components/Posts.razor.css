@@ -17,6 +17,10 @@ li {
     position: relative;
 }
 
+li:hover{
+    background-color: #414141;
+}
+
 img {
     width: 15rem;
 }
