@@ -6,7 +6,8 @@ on:
     branches: [ main ]
     paths-ignore:
       - '**.md'
-      - 'Rob.Api'
+      - 'Rob.Api/**'
+      - 'Rob.sln'
   pull_request:
     branches: [ main ]
 
