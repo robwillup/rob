@@ -5,7 +5,7 @@ VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rob", "Rob\Rob.csproj", "{3062695A-DEFE-4F9E-90E0-5EC548970E5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rob.Api", "Rob.Api\Rob.Api.csproj", "{044712A2-528C-47EF-A9A5-32723FD6AD9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rob.Api", "Rob.Api\Rob.Api.csproj", "{B4A606A6-F5AC-4979-81EA-F56527A87C6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,5 +44,17 @@ Global
 		{044712A2-528C-47EF-A9A5-32723FD6AD9A}.Release|x64.Build.0 = Release|Any CPU
 		{044712A2-528C-47EF-A9A5-32723FD6AD9A}.Release|x86.ActiveCfg = Release|Any CPU
 		{044712A2-528C-47EF-A9A5-32723FD6AD9A}.Release|x86.Build.0 = Release|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Debug|x64.Build.0 = Debug|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Debug|x86.Build.0 = Debug|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Release|x64.ActiveCfg = Release|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Release|x64.Build.0 = Release|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Release|x86.ActiveCfg = Release|Any CPU
+		{B4A606A6-F5AC-4979-81EA-F56527A87C6A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
