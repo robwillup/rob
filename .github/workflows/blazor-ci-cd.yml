@@ -4,11 +4,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
-    paths-ignore:
-      - '**.md'
-      - 'rob.api.yml'
-      - 'Rob.Api/**'
-      - 'Rob.sln'
+    paths:
+      - 'src/Rob/**'      
   pull_request:
     branches: [ main ]
 
