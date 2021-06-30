@@ -3,6 +3,8 @@ name: Rob.Api CI/CD
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - 'src/Rob/**'
   pull_request:
     branches: [ main ]
   
