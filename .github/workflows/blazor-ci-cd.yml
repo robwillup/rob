@@ -6,6 +6,7 @@ on:
     branches: [ main ]
     paths-ignore:
       - '**.md'
+      - 'rob.api.yml'
       - 'Rob.Api/**'
       - 'Rob.sln'
   pull_request:
