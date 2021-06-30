@@ -27,3 +27,6 @@ jobs:
         run: dotnet restore src/Rob.Api
       - name: dotnet build
         run: dotnet build src/Rob.Api -c Release
+        
+      - name: Docker Build
+        run: docker build -t robwillup/rob.api:latest src/Rob.Api/
