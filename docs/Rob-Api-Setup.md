@@ -26,3 +26,12 @@ gcloud projects add-iam-policy-binding singular-glow-313017 --member="serviceAcc
 ```bash
 gcloud iam service-accounts keys create rob_api_secrets.json --iam-account=rob-api-account@singular-glow-313017.iam.gserviceaccount.com
 ```
+
+### Environment Variable
+
+When running the application in GCP, it will automatically be able to find the secrets.
+Anywhere else we need to setup this environment variable:
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
+```
