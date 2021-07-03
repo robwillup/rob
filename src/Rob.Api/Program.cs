@@ -7,14 +7,13 @@ using Rob.Api.Mongo;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-string connStr = app.Configuration["ConnStr"];;
-
 if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();    
 
 app.MapGet("/", (Func<string>)( () => 
 {
-    var dbConn = new DbConnector(connStr);    
+    WriteLine(app.Configuration["ConnStr"]);
+    var dbConn = new DbConnector(app.Configuration["ConnStr"]);
     return dbConn.GetOneDoc("TestX", "ValueX").ToString();
 }));
 
