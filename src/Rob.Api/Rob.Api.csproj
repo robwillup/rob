@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Cloud.SecretManager.V1" Version="1.5.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.12.4" />
   </ItemGroup>
 
