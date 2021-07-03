@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;
 using MongoDB.Driver;
 
@@ -23,15 +21,9 @@ namespace Rob.Api.Mongo
             await _collection.InsertOneAsync(new BsonDocument(name, value));
         }
 
-        public async Task<List<BsonDocument>> GetOneDocAsync(string name, string value)
-        {
-            return await _collection.Find(new BsonDocument(name, value))
-            .ToListAsync();
+        public BsonDocument GetOneDoc(string name, string value)
+        {            
+            return _collection.Find(new BsonDocument(name, value)).FirstOrDefault();
         }
-
-        // foreach(var document in list)
-        // {
-        //     Console.WriteLine(document["Name"]);
-        // }
     }
 }

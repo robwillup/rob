@@ -7,19 +7,20 @@ using Rob.Api.Mongo;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+string connStr;
+
+if (app.Environment.IsDevelopment()){
     app.UseDeveloperExceptionPage();
-
-
-var test = new GcpSecretManager();
-WriteLine(test.AccessSecretVersion());
+    connStr = app.Configuration["ConnStr"];
+} else {
+    var gcpSecretManager = new GcpSecretManager();
+    connStr = gcpSecretManager.AccessSecretVersion();
+}
 
 app.MapGet("/", (Func<string>)( () => 
 {
-    var dbConn = new DbConnector(app.Configuration["ConnStr"]);
-    if(0 == 1)
-        dbConn.InsertOneDocAsync("TestX", "ValueX");
-    return "TestX";
+    var dbConn = new DbConnector(connStr);    
+    return dbConn.GetOneDoc("TestX", "ValueX").ToString();
 }));
 
 await app.RunAsync();
