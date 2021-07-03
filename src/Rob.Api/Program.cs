@@ -7,15 +7,10 @@ using Rob.Api.Mongo;
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-string connStr;
+string connStr = app.Configuration["ConnStr"];;
 
-if (app.Environment.IsDevelopment()){
-    app.UseDeveloperExceptionPage();
-    connStr = app.Configuration["ConnStr"];
-} else {
-    var gcpSecretManager = new GcpSecretManager();
-    connStr = gcpSecretManager.AccessSecretVersion();
-}
+if (app.Environment.IsDevelopment())
+    app.UseDeveloperExceptionPage();    
 
 app.MapGet("/", (Func<string>)( () => 
 {
