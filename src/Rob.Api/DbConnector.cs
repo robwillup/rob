@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Rob.Api.Models;
 
 namespace Rob.Api.Mongo
 {
@@ -8,22 +9,22 @@ namespace Rob.Api.Mongo
     {
         public MongoClient _client { get; }
         public IMongoDatabase _database { get; }
-        public IMongoCollection<BsonDocument> _collection { get; }
+        public IMongoCollection<Post> _collection { get; }
         public DbConnector(string connStr)
         {
             _client = new MongoClient(connStr);
             _database = _client.GetDatabase("robdb");
-            _collection = _database.GetCollection<BsonDocument>("posts");
+            _collection = _database.GetCollection<Post>("posts");
         }        
 
-        public async Task InsertOneDocAsync(string name, string value)
+        public async Task InsertOneDocAsync(Post post)
         {
-            await _collection.InsertOneAsync(new BsonDocument(name, value));
+            await _collection.InsertOneAsync(post);
         }
 
-        public BsonDocument GetOneDoc(string name, string value)
+        public async Task<Post> GetOneDocAsync(string id)
         {            
-            return _collection.Find(new BsonDocument(name, value)).FirstOrDefault();
+            return await _collection.Find(x => x.Id == ObjectId.Parse(id)).FirstOrDefaultAsync();
         }
     }
 }
