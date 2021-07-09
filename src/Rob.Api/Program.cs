@@ -5,20 +5,26 @@ using Rob.Api.Mongo;
 using System;
 using System.Net;
 using Rob.Api.Models;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
-    app.UseDeveloperExceptionPage();    
+    app.UseDeveloperExceptionPage();
 
+app.UseCors();
 app.MapGet("/posts/{id}", (async context => 
 {
     var dbConn = new DbConnector(app.Configuration["ConnStr"]);
     string id = context.Request.RouteValues["id"].ToString();
     var result = dbConn.GetOneDocAsync(id);
     await context.Response.WriteAsJsonAsync(result);
-}));
+})).RequireCors(op => 
+{
+    op.AllowAnyOrigin();
+});
 
 app.MapPost("/posts", async context => 
 {    

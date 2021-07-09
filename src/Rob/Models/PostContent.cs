@@ -1,15 +1,19 @@
 using System;
+using MongoDB.Bson;
 
 namespace Rob.Models
 {
-    public class PostContent
+    public class Res 
     {
-        public string id { get; set; }
-        public string title { get; set; }
-        public DateTime date { get; set; }
-        public string subTitle { get; set; }
-        public string text { get; set; }
-        public string tags { get; set; }
-        public string image { get; set; }
+        public PostContent result { get; set; }
+    }
+    public class PostContent
+    {        
+        public string Title { get; set; }
+        public string SubTitle { get; set; }
+        public string Text { get; set; }
+        public DateTime Date { get; set; }        
+        public string Tags { get; set; }
+        public string Image { get; set; }
     }
 }
