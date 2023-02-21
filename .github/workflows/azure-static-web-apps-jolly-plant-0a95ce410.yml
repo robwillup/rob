@@ -21,7 +21,7 @@ jobs:
       - name: Test
         run: pwd && ls
       - name: Build
-        run: dotnet build ../../src/Rob
+        run: dotnet build src/Rob
 
 
   close_pull_request_job:
