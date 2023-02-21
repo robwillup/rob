@@ -22,6 +22,8 @@ jobs:
         run: pwd && ls
       - name: Build
         run: dotnet build src/Rob
+      - name: Publish
+        run: dotnet publish src/Rob -c Release -o src/Rob/publish 
 
 
   close_pull_request_job:
