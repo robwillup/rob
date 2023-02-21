@@ -30,8 +30,8 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          app_location: "wwwroot"
-          output_location: "src/Rob/publish"
+          app_location: "/src/Rob"
+          output_location: "/wwwroot"
           ###### End of Repository/Build Configurations ######
 
 
