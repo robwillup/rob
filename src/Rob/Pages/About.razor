@@ -4,6 +4,7 @@
     <button @onclick="@(() => SetTabID("summary"))">TL;DR</button>
     <button @onclick="@(() => SetTabID("experience"))">Experience</button>
     <button @onclick="@(() => SetTabID("skills"))">Skills</button>
+    <button @onclick="@(() => SetTabID("personal"))">More About Me</button>
 
     @if(TabID == "summary")
     {
@@ -31,6 +32,17 @@
     else if (TabID == "experience")
     {
         <div class="content">
+            <h3>Software Developer - Plurilock Security Inc.</h3>
+            <h5>Aug 2021 - Present (1.5 Years)</h5>
+
+            <p>
+                    Redesigning and modernizing a desktop application. Refactoring large portions of the code to
+                apply best practices and automate testing.
+                Write, debug and maintain new and existing software applications.
+                Primary focus is on C#, Rx.NET and Win32 development, but also work
+                helping with other languages such as JavaScript and Java.
+            </p>
+
             <h3>Software Developer - ExxonMobil</h3>
             <h5>May 2018 - April 2021 (3 years)</h5>
 
@@ -113,5 +125,27 @@
     {
         <div class="content"><p>Coming soon...</p></div>
         <img src="https://media.giphy.com/media/4SY40ExbxfyOyD91VI/giphy.gif" />
+    }
+    else if(TabID == "personal")
+    {
+        <div class="content">            
+            <p>
+                I am a follower of the Lord Jesus Christ. I believe that He is the Son of God
+                and that He gave His life to save me (and everyone who believes) on the cross.
+                <br>
+                There are many reliable resources available for anyone to learn more about Him,
+                but the first one I would recommend you is the Holy Scriptures.
+                <br>
+                Again, there are several versions available, this is one of them: <a href="https://www.esv.org/">English Standard Version</a>.
+                <br>
+                These are other precious resources to help you in your journey with God:
+                <br>
+                <ul>
+                    <li><a href="https://www.desiringgod.org/" target="_blank">www.desiringgod.org</a></li>
+                    <li><a href="https://movingworks.org/films/" target="_blank">movingworks.org</a></li>
+                    <li><a href="https://www.reasonablefaith.org/" target="_blank">www.reasonablefaith.org</a></li>
+                </ul>
+            </p>
+        </div>
     }
 </div>
