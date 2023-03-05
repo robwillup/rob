@@ -4,13 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <OutputType>Exe</OutputType>
     <PublishSingleFile>true</PublishSingleFile>
-    <PublishTrimmed>true</PublishTrimmed>
     <PublishReadyToRun>true</PublishReadyToRun>
     <UserSecretsId>8b2edad7-ade9-47a5-a8b3-d7bb23e7d0f7</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
-  </ItemGroup>
 
 </Project>
