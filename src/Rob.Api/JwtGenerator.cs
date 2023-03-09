@@ -3,30 +3,40 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System;
+using System.Security.Cryptography;
+using System.IO;
 
 namespace Rob.Api;
 
 public class JwtGenerator
 {
+    private readonly RSA _rsa;
+
+    public JwtGenerator()
+    {
+        _rsa = new RSACryptoServiceProvider();
+        string keyContent = File.ReadAllText("cert.pem");
+        ReadOnlySpan<char> pem = new(keyContent.ToCharArray());
+        _rsa.ImportFromPem(pem);
+    }
+
     public string GenerateToken()
     {
-        // TODO: Use PEM to sign the JWT.
-        throw new NotImplementedException();
-        //var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-        //var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-        //var claims = new[]
-        //{
-        //        new Claim(ClaimTypes.NameIdentifier,user.Username),
-        //        new Claim(ClaimTypes.Role,user.Role)
-        //    };
-        //var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-        //    _config["Jwt:Audience"],
-        //    claims,
-        //    expires: DateTime.Now.AddMinutes(15),
-        //    signingCredentials: credentials);
+        // generate token that is valid for 7 days
+        var tokenHandler = new JwtSecurityTokenHandler();
 
-
-        //return new JwtSecurityTokenHandler().WriteToken(token);
-
+        var tokenDescriptor = new SecurityTokenDescriptor
+        {
+            Subject = new ClaimsIdentity(new[]
+            { 
+                new Claim("iat", DateTime.UtcNow.AddSeconds(-60).ToString()),
+                new Claim("exp", DateTime.UtcNow.AddMinutes(7).ToString()),
+                new Claim("iss", "297682")
+            }),
+            Expires = DateTime.UtcNow.AddMinutes(7),
+            SigningCredentials = new SigningCredentials(new RsaSecurityKey(_rsa), SecurityAlgorithms.RsaSha256Signature)
+        };
+        var token = tokenHandler.CreateToken(tokenDescriptor);
+        return tokenHandler.WriteToken(token);
     }
 }

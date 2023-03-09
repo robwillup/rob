@@ -2,6 +2,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Rob.Api;
+using System;
+
+JwtGenerator jwtGenerator = new();
+
+string token = jwtGenerator.GenerateToken();
+
+Console.WriteLine(token);
+
+return;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
