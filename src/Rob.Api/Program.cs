@@ -4,21 +4,21 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Rob.Api;
 using System;
-
-JwtGenerator jwtGenerator = new();
-
-string token = jwtGenerator.GenerateToken();
-
-Console.WriteLine(token);
-
-return;
+using Microsoft.Extensions.Configuration;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly());
 builder.Services.AddCors();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
+
+string pem = app.Configuration["GitHub:JwtSigningKey"];
+JwtGenerator jwtGenerator = new(pem);
+
+string token = jwtGenerator.GenerateToken();
 
 app.UseCors();
 

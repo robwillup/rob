@@ -12,10 +12,10 @@ public class JwtGenerator
 {
     private readonly RSA _rsa;
 
-    public JwtGenerator()
+    public JwtGenerator(string signingKey)
     {
         _rsa = new RSACryptoServiceProvider();
-        string keyContent = File.ReadAllText("cert.pem");
+        string keyContent = File.ReadAllText(signingKey);
         ReadOnlySpan<char> pem = new(keyContent.ToCharArray());
         _rsa.ImportFromPem(pem);
     }
