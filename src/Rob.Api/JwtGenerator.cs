@@ -5,22 +5,25 @@ using System.Text;
 using System;
 using System.Security.Cryptography;
 using System.IO;
+using Microsoft.Extensions.Configuration;
 
 namespace Rob.Api;
 
-public class JwtGenerator
+public class JwtGenerator : IJwtGenerator
 {
     private readonly RSA _rsa;
+    private readonly IConfiguration _config;
 
-    public JwtGenerator(string signingKey)
+    public JwtGenerator(IConfiguration config)
     {
+        _config = config;
         _rsa = new RSACryptoServiceProvider();
-        string keyContent = File.ReadAllText(signingKey);
+        string keyContent = File.ReadAllText(_config["GitHub:JwtSigningKey"]);
         ReadOnlySpan<char> pem = new(keyContent.ToCharArray());
         _rsa.ImportFromPem(pem);
     }
 
-    public string GenerateToken()
+    public JwtSecurityToken GenerateToken()
     {
         // generate token that is valid for 7 days
         var tokenHandler = new JwtSecurityTokenHandler();
@@ -37,6 +40,6 @@ public class JwtGenerator
             SigningCredentials = new SigningCredentials(new RsaSecurityKey(_rsa), SecurityAlgorithms.RsaSha256Signature)
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
+        return new JwtSecurityToken(tokenHandler.WriteToken(token));
     }
 }
