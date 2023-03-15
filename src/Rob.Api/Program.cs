@@ -40,6 +40,8 @@ app.MapGet("/articles", (async contex =>
         token = await installationTokenGetter.GetInstallationTokenAsync(jwt);
     }
 
+
+
     await contex.Response.WriteAsync($"Coming soon {token.Token}");
 }));
 
