@@ -28,9 +28,11 @@ var scope = app.Services.CreateScope();
 
 var jwtGenerator = scope.ServiceProvider.GetService<IJwtGenerator>();
 var installationTokenGetter = scope.ServiceProvider.GetService<IInstallationToken>();
+var httpClientFactory = scope.ServiceProvider.GetService<IHttpClientFactory>();
 
 JwtSecurityToken jwt = jwtGenerator.GenerateToken();
 InstallationToken token = await installationTokenGetter.GetInstallationTokenAsync(jwt);
+HttpClient client = httpClientFactory.CreateClient();
 
 app.MapGet("/articles", (async contex =>
 {
@@ -39,10 +41,15 @@ app.MapGet("/articles", (async contex =>
         jwt = new JwtSecurityToken();
         token = await installationTokenGetter.GetInstallationTokenAsync(jwt);
     }
+    client.DefaultRequestHeaders.Clear();
+    client.DefaultRequestHeaders.Add("User-Agent", "Rob.Api");
+    client.DefaultRequestHeaders.Add("Accept", "application/vnd.github.raw");
+    client.DefaultRequestHeaders.Add("X-GitHub-Api-Version", "2022-11-28");
+    client.DefaultRequestHeaders.Add("Authorization", token.Token);
 
+    var res = await client.GetAsync("https://api.github.com/repos/robwillup/mithrandir/contents/README.md");
 
-
-    await contex.Response.WriteAsync($"Coming soon {token.Token}");
+    await contex.Response.WriteAsync(await res.Content.ReadAsStringAsync());
 }));
 
 app.MapGet("/articles/{id}", (async context =>
