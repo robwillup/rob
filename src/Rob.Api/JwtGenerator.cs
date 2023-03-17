@@ -6,6 +6,8 @@ using System;
 using System.Security.Cryptography;
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using Azure.Security.KeyVault.Keys;
+using Azure.Security.KeyVault.Keys.Cryptography;
 
 namespace Rob.Api;
 
@@ -23,9 +25,10 @@ public class JwtGenerator : IJwtGenerator
         _rsa.ImportFromPem(pem);
     }
 
-    public JwtSecurityToken GenerateToken()
+    public JwtSecurityToken GenerateToken(CryptographyClient cryptoClient, KeyVaultKey key)
     {
-        // generate token that is valid for 7 days
+        // TODO: https://stackoverflow.com/questions/56929205/azure-keyvault-sign-jwt-token
+
         var tokenHandler = new JwtSecurityTokenHandler();
 
         var tokenDescriptor = new SecurityTokenDescriptor
@@ -36,9 +39,9 @@ public class JwtGenerator : IJwtGenerator
                 new Claim("exp", DateTime.UtcNow.AddMinutes(7).ToString()),
                 new Claim("iss", "297682")
             }),
-            Expires = DateTime.UtcNow.AddMinutes(7),
-            SigningCredentials = new SigningCredentials(new RsaSecurityKey(_rsa), SecurityAlgorithms.RsaSha256Signature)
+            Expires = DateTime.UtcNow.AddMinutes(7)
         };
+        var s = SigningCredentials = cryptoClient.Sign(key, Encoding.UTF8.GetBytes())
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return new JwtSecurityToken(tokenHandler.WriteToken(token));
     }

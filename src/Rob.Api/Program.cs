@@ -9,6 +9,9 @@ using System.Reflection;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text.Json;
 using System.Net.Http;
+using Azure.Security.KeyVault.Keys;
+using Azure.Identity;
+using Azure.Security.KeyVault.Keys.Cryptography;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly());
@@ -30,7 +33,14 @@ var jwtGenerator = scope.ServiceProvider.GetService<IJwtGenerator>();
 var installationTokenGetter = scope.ServiceProvider.GetService<IInstallationToken>();
 var httpClientFactory = scope.ServiceProvider.GetService<IHttpClientFactory>();
 
-JwtSecurityToken jwt = jwtGenerator.GenerateToken();
+var keyVaultclient = new KeyClient(new Uri("https://rob.vault.azure.net/"), new DefaultAzureCredential());
+
+KeyVaultKey key = keyVaultclient.GetKey("github-rob-api-private-key");
+
+CryptographyClient cryptoClient = keyVaultclient.GetCryptographyClient(
+    key.Name, key.Properties.Version);
+
+JwtSecurityToken jwt = jwtGenerator.GenerateToken(cryptoClient, key);
 InstallationToken token = await installationTokenGetter.GetInstallationTokenAsync(jwt);
 HttpClient client = httpClientFactory.CreateClient();
 
