@@ -21,7 +21,7 @@ public class InstallationTokenGetter : IInstallationToken
         _config = config;
     }
 
-    public async Task<InstallationToken> GetInstallationTokenAsync(JwtSecurityToken jwt)
+    public async Task<InstallationToken> GetInstallationTokenAsync(string jwt)
     {
         InstallationTokenRequestBody body = new()
         {
@@ -44,7 +44,7 @@ public class InstallationTokenGetter : IInstallationToken
             "application/vnd.github+json"));
 
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-            "Bearer", jwt.RawData);
+            "Bearer", jwt);
 
         Uri uri = new(
             $"https://api.github.com/app/installations/{_config["GitHub:InstallationId"]}/access_tokens",

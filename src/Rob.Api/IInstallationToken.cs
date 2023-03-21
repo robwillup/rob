@@ -5,5 +5,5 @@ namespace Rob.Api;
 
 public interface IInstallationToken
 {
-    public Task<InstallationToken> GetInstallationTokenAsync(JwtSecurityToken jwt);
+    public Task<InstallationToken> GetInstallationTokenAsync(string jwt);
 }

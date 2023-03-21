@@ -12,6 +12,7 @@ using System.Net.Http;
 using Azure.Security.KeyVault.Keys;
 using Azure.Identity;
 using Azure.Security.KeyVault.Keys.Cryptography;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly());
@@ -33,23 +34,18 @@ var jwtGenerator = scope.ServiceProvider.GetService<IJwtGenerator>();
 var installationTokenGetter = scope.ServiceProvider.GetService<IInstallationToken>();
 var httpClientFactory = scope.ServiceProvider.GetService<IHttpClientFactory>();
 
-var keyVaultclient = new KeyClient(new Uri("https://rob.vault.azure.net/"), new DefaultAzureCredential());
-
-KeyVaultKey key = keyVaultclient.GetKey("github-rob-api-private-key");
-
-CryptographyClient cryptoClient = keyVaultclient.GetCryptographyClient(
-    key.Name, key.Properties.Version);
-
-JwtSecurityToken jwt = jwtGenerator.GenerateToken(cryptoClient, key);
-InstallationToken token = await installationTokenGetter.GetInstallationTokenAsync(jwt);
+JwtSecurityToken jwt = jwtGenerator.GenerateToken();
+InstallationToken token = await installationTokenGetter.GetInstallationTokenAsync(jwt.RawData);
 HttpClient client = httpClientFactory.CreateClient();
+
+JwtSecurityTokenHandler tokenHandler = new();
 
 app.MapGet("/articles", (async contex =>
 {
     if (jwt.IssuedAt < DateTime.UtcNow.AddMinutes(-6))
     {
         jwt = new JwtSecurityToken();
-        token = await installationTokenGetter.GetInstallationTokenAsync(jwt);
+        token = await installationTokenGetter.GetInstallationTokenAsync(jwt.RawData);
     }
     client.DefaultRequestHeaders.Clear();
     client.DefaultRequestHeaders.Add("User-Agent", "Rob.Api");
