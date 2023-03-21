@@ -17,17 +17,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1.8.1
-        with:
-          dotnet-version: 6.0.x
-          include-prerelease: true
-
-      - name: dotnet restore
-        run: dotnet restore src/Rob.Api
-      - name: dotnet build
-        run: dotnet build src/Rob.Api -c Release
         
       - name: Docker login
         run: docker login -u robwillup -p ${{ DOCKER_HUB_PAT }}
