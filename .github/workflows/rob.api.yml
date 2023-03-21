@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
         
       - name: Docker login
-        run: docker login -u robwillup -p ${{ DOCKER_HUB_PAT }}
+        run: docker login -u robwillup -p ${{ secrets.DOCKER_HUB_PAT }}
 
       - name: Docker Build
         run: docker build -t robwillup/robapi:latest src/Rob.Api/
