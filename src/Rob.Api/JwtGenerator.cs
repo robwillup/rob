@@ -23,10 +23,6 @@ public class JwtGenerator : IJwtGenerator
     public JwtGenerator(IConfiguration config)
     {
         _config = config;
-        _rsa = new RSACryptoServiceProvider();
-        string keyContent = File.ReadAllText(_config["GitHub:JwtSigningKey"]);
-        ReadOnlySpan<char> pem = new(keyContent.ToCharArray());
-        _rsa.ImportFromPem(pem);
     }
 
     public JwtSecurityToken GenerateToken()
