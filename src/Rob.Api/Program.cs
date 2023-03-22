@@ -7,15 +7,11 @@ using System;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
 using System.IdentityModel.Tokens.Jwt;
-using System.Text.Json;
 using System.Net.Http;
-using Azure.Security.KeyVault.Keys;
-using Azure.Identity;
-using Azure.Security.KeyVault.Keys.Cryptography;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly());
+builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddCors();
 builder.Services.AddScoped<IJwtGenerator, JwtGenerator>();
 builder.Services.AddScoped<IInstallationToken, InstallationTokenGetter>();
@@ -28,20 +24,23 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors();
 
+Console.WriteLine(Environment.GetEnvironmentVariable("appid", EnvironmentVariableTarget.Process));
+Console.WriteLine(app.Configuration["appid"]);
+
 var scope = app.Services.CreateScope();
-
-var jwtGenerator = scope.ServiceProvider.GetService<IJwtGenerator>();
-var installationTokenGetter = scope.ServiceProvider.GetService<IInstallationToken>();
-var httpClientFactory = scope.ServiceProvider.GetService<IHttpClientFactory>();
-
-JwtSecurityToken jwt = jwtGenerator.GenerateToken();
-InstallationToken token = await installationTokenGetter.GetInstallationTokenAsync(jwt.RawData);
-HttpClient client = httpClientFactory.CreateClient();
-
-JwtSecurityTokenHandler tokenHandler = new();
 
 app.MapGet("/articles", (async contex =>
 {
+    var jwtGenerator = scope.ServiceProvider.GetService<IJwtGenerator>();
+    var installationTokenGetter = scope.ServiceProvider.GetService<IInstallationToken>();
+    var httpClientFactory = scope.ServiceProvider.GetService<IHttpClientFactory>();
+
+    JwtSecurityToken jwt = jwtGenerator.GenerateToken();
+    InstallationToken token = await installationTokenGetter.GetInstallationTokenAsync(jwt.RawData);
+    HttpClient client = httpClientFactory.CreateClient();
+
+    JwtSecurityTokenHandler tokenHandler = new();
+
     if (jwt.IssuedAt < DateTime.UtcNow.AddMinutes(-6))
     {
         jwt = new JwtSecurityToken();
@@ -68,7 +67,7 @@ app.MapGet("/articles/{id}", (async context =>
 
 app.MapGet("/", () =>
 {
-    return $"\"For even the very wise cannot see all ends.\" -- Gandalf\nThe JWT: {jwt}";
+    return $"\"For even the very wise cannot see all ends.\" -- Gandalf";
 });
 
 await app.RunAsync();

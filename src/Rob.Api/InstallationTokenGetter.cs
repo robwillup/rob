@@ -47,7 +47,7 @@ public class InstallationTokenGetter : IInstallationToken
             "Bearer", jwt);
 
         Uri uri = new(
-            $"https://api.github.com/app/installations/{_config["GitHub:InstallationId"]}/access_tokens",
+            $"https://api.github.com/app/installations/{_config["installationid"]}/access_tokens",
             UriKind.Absolute);
 
         HttpResponseMessage response = await _httpClient.PostAsync(uri, content);
