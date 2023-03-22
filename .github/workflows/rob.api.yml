@@ -18,6 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: pwd
+        run: pwd
+      
       - name: dotnet publish
         run: dotnet publish -o publish --sc -r linux-x64 -c Release
         
@@ -25,7 +28,7 @@ jobs:
         uses: Azure/functions-action@v1.4.8
         with:
           app-name: robwillup-api
-          package: src/Rob.Api/publish/Rob.Api
+          package: publish/Rob.Api
         
       - name: Docker login
         run: docker login -u robwillup -p ${{ secrets.DOCKER_HUB_PAT }}
