@@ -1,0 +1,150 @@
+.menu {
+    float: right;    
+}
+
+.top-menu {    
+    background-image: linear-gradient(90deg, rgb(0, 183, 255) 0%, rgb(0, 68, 95) 70%); 
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    top: 0;
+    width: 100%;    
+    z-index: 2000;
+    height: 7rem;
+}
+
+.top-menu ul {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 18pt;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.top-menu li {
+    margin: 0 1rem 0 1rem;
+}
+
+.top-menu li a {
+    display: block;
+    padding: 20px 20px;    
+    text-decoration: none;
+}
+
+.top-menu li a:hover,
+.top-menu .menu-btn:hover {
+    background-color: #f4f4f4;
+}
+
+.top-menu .logo {
+    display: block;
+    color: white;
+    font-family: 'Bilbo', cursive;
+    float: left;
+    font-size: 3em;
+    padding-left: 10px;
+    text-decoration: none;
+    padding-top: 2px;
+}
+  
+/* menu */
+
+.top-menu .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .1s ease-out;
+    padding-top: 4px;
+}
+
+/* menu icon */
+
+.top-menu .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 23px 20px;
+    position: relative;
+    user-select: none;
+}
+
+.top-menu .menu-icon .navicon {
+    background: #b3e6ff;
+    display: block;
+    height: 2px;
+    position: relative;    
+    width: 18px;
+}
+  
+.top-menu .menu-icon .navicon:before,
+.top-menu .menu-icon .navicon:after {
+    background: #b3e6ff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .1s ease-out;
+    width: 100%;
+}
+
+.top-menu .menu-icon .navicon:before {
+    top: 5px;
+}
+
+.top-menu .menu-icon .navicon:after {
+    top: -5px;
+}
+  
+/* menu btn */
+
+.top-menu .menu-btn {
+    display: none;
+}
+
+.top-menu .menu-btn:checked ~ .menu {
+    margin-top: -10px;
+    max-height: 240px;
+    float: right;
+    background-image: linear-gradient(90deg, rgb(0, 77, 107) 0%, rgb(0, 68, 95) 70%);
+    width: 40%;    
+}
+
+.top-menu .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+
+.top-menu .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.top-menu .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.top-menu .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.top-menu .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+    float: right;
+}
+  
+/* 32em = 768px */
+
+@media (min-width: 32em) {
+    .top-menu ul {
+        float: right;
+    }
+    .top-menu li {
+        float: left;
+    }
+    .top-menu li a {
+        padding: 20px 30px;    
+    }
+    .top-menu .menu {
+        clear: none;
+        float: right;
+        max-height: none;        
+    }
+    .top-menu .menu-icon {
+        display: none;    
+    }
+}
+  

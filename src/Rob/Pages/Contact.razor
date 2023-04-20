@@ -1,25 +1,43 @@
 ﻿@page "/contact"
 
-<div class="social">
-    <p>
-        Would like to talk about software development or get connected?
-        <br>
-        Drop me a message and say hi!
-        <br>
-        You can find me pretty much anywhere by my handle: <strong>@@robwillup</strong>
-    </p>
+<PageTitle>Contact</PageTitle>
+
+<h1>Contact</h1>
+
+<p>
+    Would like to talk about software development or get connected?
     <br>
-    <div class="icons">
-        <a id="github" href="https://github.com/robwillup" target="_blank">
-            <i class="fab fa-github fa-4x"></i>
-        </a>        
-        <a id="linkedin" href="https://www.linkedin.com/in/robwillup/" target="_blank">
-            <i class="fab fa-linkedin fa-4x"></i>
-        </a>        
-        <a id="twitter" href="https://twitter.com/robwillup" target="_blank">
-            <i class="fab fa-twitter fa-4x"></i>        
-        </a>
-    </div>    
+    Drop me a message and say hi!
+    <br>
+    You can find me pretty much anywhere by my handle: <strong>@@robwillup</strong>
+</p>
+
+<br>
+<div class="icons">
+    <a id="github" href="https://github.com/robwillup" target="_blank">
+        <i class="fab fa-github fa-4x"></i>
+    </a>
+    <a id="linkedin" href="https://www.linkedin.com/in/robwillup/" target="_blank">
+        <i class="fab fa-linkedin fa-4x"></i>
+    </a>
+    <a id="twitter" href="https://twitter.com/robwillup" target="_blank">
+        <i class="fab fa-twitter fa-4x"></i>
+    </a>
 </div>
 
+<p role="status">Current count: @currentCount</p>
 
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+
+@code {
+
+}

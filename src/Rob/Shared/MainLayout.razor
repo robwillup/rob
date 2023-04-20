@@ -1,13 +1,23 @@
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
 
-<NavMenu />
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
 
-<div class="main">
-    @Body
+    <main>
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+        <footer>
+            © Copyright @DateTime.Today.Year,
+            <a href="https://www.robwillup.com">Robson William</a>.
+            Powered by
+            <a href="https://dotnet.microsoft.com/" target="_blank">.NET 7.0</a>
+        </footer>
+    </main>
 </div>
-<footer>
-    © Copyright @DateTime.Today.Year,
-    <a href="https://www.robwillup.com">Robson William</a>.
-    Powered by
-    <a href="https://dotnet.microsoft.com/" target="_blank">.NET 7.0</a>
-</footer>
