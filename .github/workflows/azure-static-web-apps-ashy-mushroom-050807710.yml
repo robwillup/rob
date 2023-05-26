@@ -16,7 +16,7 @@ jobs:
     name: Build and Deploy Job
     steps:
       - name: Check where I am
-        run: pwd
+        run: pwd && ls
       - name: Write Public Token
         run: echo ${{ secrets.MITHRANDIR_PUBLIC_TOKEN }} > src/Rob/wwwroot/token_to_public_repo
       - uses: actions/checkout@v2
