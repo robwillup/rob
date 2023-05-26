@@ -16,7 +16,7 @@ jobs:
     name: Build and Deploy Job
     steps:
       - name: Write Public Token
-        run: echo ${{ MITHRANDIR_PUBLIC_TOKEN }} > src/Rob/wwwroot/token_to_public_repo
+        run: echo ${{ secrets.MITHRANDIR_PUBLIC_TOKEN }} > src/Rob/wwwroot/token_to_public_repo
       - uses: actions/checkout@v2
         with:
           submodules: true
