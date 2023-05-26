@@ -12,9 +12,15 @@ namespace Rob.Pages
     {
         [Inject]
         public HttpClient Http { get; set; }
+
+        [Inject]
+        public PostManager PostManager { get; set; }
         
         [Parameter]
         public PostPreview[] PostItems { get; set; }
+
+        [Parameter]
+        public List<Topic> Topics { get; set; }
 
         [Parameter]
         public PostContent OpenPost { get; set; }
@@ -25,6 +31,7 @@ namespace Rob.Pages
         protected override async Task OnInitializedAsync()
         {
             PostItems = await Http.GetFromJsonAsync<PostPreview[]>("sample-data/post-list.json");
+            Topics = await PostManager.ListTopics();
         }
     }
 }

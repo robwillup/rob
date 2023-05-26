@@ -1,4 +1,9 @@
 ﻿@page "/contact"
+@using System.Security.Cryptography;
+@using System.IdentityModel.Tokens.Jwt;
+@using Microsoft.IdentityModel.Tokens;
+@using System.Security.Claims;
+@using Rob.Services;
 
 <div class="social">
     <p>
@@ -19,7 +24,5 @@
         <a id="twitter" href="https://twitter.com/robwillup" target="_blank">
             <i class="fab fa-twitter fa-4x"></i>        
         </a>
-    </div>    
+    </div>
 </div>
-
-

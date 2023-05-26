@@ -1,0 +1,13 @@
+﻿<div class="topics">
+    <ul>
+        @foreach (Topic topic in TopicList)
+        {
+            @if(topic.Type == "dir")
+            {
+                <li>
+                    <h3>@topic.Name</h3>
+                </li>
+            }
+        }
+    </ul>
+</div>
