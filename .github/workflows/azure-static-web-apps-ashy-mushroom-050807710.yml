@@ -18,10 +18,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Check where I am
-        run: pwd & cat src/Rob/Program.cs
-      #- name: Write Public Token
-        #run: touch src/Rob/wwwroot/token_to_public_repo && echo ${{ secrets.MITHRANDIR_PUBLIC_TOKEN }} > src/Rob/wwwroot/token_to_public_repo
+      - name: Write Public Token
+        run: touch src/Rob/wwwroot/token_public_repo && echo ${{ secrets.MITHRANDIR_PUBLIC_TOKEN }} > src/Rob/wwwroot/token_public_repo
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
