@@ -8,7 +8,7 @@ namespace Rob.Services
     {
         public async Task<List<Topic>> ListTopics()
         {
-            string token = File.ReadAllText("token_to_public_repo");
+            string token = File.ReadAllText("data/token_public_repo.json");
             Uri uri = new("https://api.github.com/repos/robwillup/mithrandir/contents/docs");
             HttpClient http = new();
             http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
