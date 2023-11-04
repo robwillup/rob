@@ -1,11 +1,11 @@
-﻿@page "/"
+﻿@page "/blog"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Blog</PageTitle>
 
 <MudStack Row="true" Class="gap-x-16" AlignItems="AlignItems.Center" Justify="Justify.Center">
-    <MudText Typo="Typo.h3" GutterBottom="true">Welcome to Rob's Blog!</MudText>
-    <MudAvatar Style="height:128px; width:128px;">
-        <MudImage Src="images/GitHub_Profile.png"></MudImage>
+    <MudText Typo="Typo.h3" GutterBottom="true">Rob's Blog!</MudText>
+    <MudAvatar Style="height:200px; width:200px;">
+        <MudImage Src="images/pixel_book_animated.gif"></MudImage>
     </MudAvatar>
 </MudStack>
 
@@ -23,3 +23,13 @@
         <MudPaper Height="300px" Width="260px" />
     </MudItem>
 </MudGrid>
+
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

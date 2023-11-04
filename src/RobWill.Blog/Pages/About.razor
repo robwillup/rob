@@ -1,0 +1,24 @@
+﻿@page "/about"
+@inject HttpClient Http
+@using RobWill.Blog.Shared
+
+<PageTitle>About Me</PageTitle>
+
+<MudStack Row="true" Class="gap-x-16" AlignItems="AlignItems.Center" Justify="Justify.Center">
+    <MudText Typo="Typo.h3" GutterBottom="true">About Rob</MudText>
+    <MudAvatar Style="height:200px; width:200px;">
+        <MudImage Src="images/sonic-the-hedgehog-vector-dance.gif"></MudImage>
+    </MudAvatar>
+</MudStack>
+
+<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary" Class="pa-12">
+    <MudTabPanel Text="TL;DR"/>
+    <MudTabPanel Text="Work Experience"/>
+    <MudTabPanel Text="Skills"/>
+    <MudTabPanel Text="Projects"/>
+    <MudTabPanel Text="More"/>
+</MudTabs>
+
+@code {
+    public int spacing { get; set; } = 2;
+}
