@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: true
       - name: Add token for public pages
-        run: echo ${{ secrets.MITHRANDIR_PUBLIC_TOKEN }}
+        run: sed -i 's/PUBLIC_PAT/${{ secrets.MITHRANDIR_PUBLIC_TOKEN }}/g' src/RobWill.Blog/wwwroot/appsettings.json
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
