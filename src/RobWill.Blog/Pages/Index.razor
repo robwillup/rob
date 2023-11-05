@@ -1,9 +1,11 @@
 ﻿@page "/"
+@inject Config Config
 
 <PageTitle>Index</PageTitle>
 
 <MudStack Row="true" Class="gap-x-16" AlignItems="AlignItems.Center" Justify="Justify.Center">
     <MudText Typo="Typo.h3" GutterBottom="true">Welcome to Rob's Blog!</MudText>
+    <MudText Typo="Typo.h4" GutterBottom="true">@Config.mithrandirPat</MudText>
     <MudAvatar Style="height:128px; width:128px;">
         <MudImage Src="images/GitHub_Profile.png"></MudImage>
     </MudAvatar>
