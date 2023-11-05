@@ -12,18 +12,14 @@
 </MudStack>
 
 <MudGrid Spacing="2" Justify="Justify.Center" Class="pa-12">
-    <MudItem>
-        <MudPaper Height="300px" Width="260px"/>
-    </MudItem>
-    <MudItem>
-        <MudPaper Height="300px" Width="260px"/>
-    </MudItem>
-    <MudItem>
-        <MudPaper Height="300px" Width="260px" />
-    </MudItem>
-    <MudItem>
-        <MudPaper Height="300px" Width="260px" />
-    </MudItem>
+    @foreach(GitHubItem item in _items)
+    {
+        <MudItem>
+            <MudPaper Height="300px" Width="260px">
+                <MudText>@item.Name</MudText>
+            </MudPaper>
+        </MudItem>
+    }
 </MudGrid>
 
 

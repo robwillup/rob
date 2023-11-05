@@ -7,7 +7,7 @@ public partial class Blog : IComponent
 {
     [Inject]
     protected Config Config {get;set;} = default;
-    private List<GitHubItem> _items;
+    private List<GitHubItem> _items = new();
 
     protected override async Task OnInitializedAsync()
     {
