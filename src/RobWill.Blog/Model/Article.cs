@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace RobWill.Blog;
 
 public class GetArticles
