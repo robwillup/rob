@@ -1,0 +1,11 @@
+@page "/blog/article"
+@inject NavigationManager NavigationManager
+
+@if (string.IsNullOrEmpty(Id) || string.IsNullOrEmpty(_content))
+{
+    @:None
+}
+else
+{
+    @((MarkupString)Markdown.ToHtml(_content))
+}

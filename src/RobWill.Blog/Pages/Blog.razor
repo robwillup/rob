@@ -19,6 +19,7 @@
         string[] nameParts = item.Name.Split("@");
         string date = DateTime.Parse(nameParts[0]).ToShortDateString();
         string title = nameParts[1].Replace("_", " ").Replace(".md", "");
+        string encodedPath = System.Web.HttpUtility.UrlEncode(item.Path);
         <MudItem Style="width:360px;height:300px">
             <MudCard>
                 <MudCardMedia Image=@imagePath Style="width: 200px; height: 200px; margin-left: 20%" />
@@ -28,7 +29,7 @@
                 </MudCardContent>
                 <MudCardActions>
                     @* <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton> *@
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" Href="@item.Url" Target="_blank">Read</MudButton>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" Href=@($"/blog/article?Id={encodedPath}")>Read</MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
