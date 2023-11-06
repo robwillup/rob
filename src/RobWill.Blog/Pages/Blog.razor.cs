@@ -12,7 +12,6 @@ public partial class Blog : IComponent
     protected override async Task OnInitializedAsync()
     {
         _items = await GetArticles();
-        System.Console.WriteLine(_items.Where(n => n.Name == "2023-11-05-Streams.md").FirstOrDefault().Name);
     }
 
     public async Task<List<GitHubItem>> GetArticles()
@@ -22,7 +21,7 @@ public partial class Blog : IComponent
         client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Config.mithrandirPat}");
         client.DefaultRequestHeaders.Add("X-GitHub-Api-Version", "2022-11-28");
 
-        var res = await client.GetAsync("https://api.github.com/repos/robwillup/mithrandir/contents/docs/Languages_And_Frameworks/.NET");
+        var res = await client.GetAsync("https://api.github.com/repos/robwillup/mithrandir/contents/docs/Languages_And_Frameworks/Go/Functions");
 
         List<GitHubItem> gitHubItems = JsonSerializer.Deserialize<List<GitHubItem>>(await res.Content.ReadAsStringAsync());
 

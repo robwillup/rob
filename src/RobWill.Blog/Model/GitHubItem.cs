@@ -9,4 +9,7 @@ public class GitHubItem
 
     [JsonPropertyName("html_url")]
     public string Url { get; set; }
+
+    [JsonPropertyName("path")]
+    public string Path { get; set; }
 }

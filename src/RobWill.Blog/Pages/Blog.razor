@@ -14,10 +14,19 @@
 <MudGrid Spacing="2" Justify="Justify.Center" Class="pa-12">
     @foreach(GitHubItem item in _items)
     {
-        <MudItem>
-            <MudPaper Height="300px" Width="260px">
-                <MudText>@item.Name</MudText>
-            </MudPaper>
+        string imagePath = item.Path.Replace("docs/", "").Replace(".md", ".gif");
+        imagePath = System.IO.Path.Combine("https://raw.githubusercontent.com/robwillup/mithrandir/main/assets/", imagePath);
+        <MudItem Style="width:260px;height:300px">
+            <MudCard>
+                <MudCardMedia Image=@imagePath Height="200" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5">@item.Name</MudText>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton>
+                    <MudButton Variant="Variant.Text" Color="Color.Primary">Read</MudButton>
+                </MudCardActions>
+            </MudCard>
         </MudItem>
     }
 </MudGrid>
