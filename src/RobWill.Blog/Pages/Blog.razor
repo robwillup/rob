@@ -3,7 +3,7 @@
 <PageTitle>Blog</PageTitle>
 
 <MudStack Row="true" Class="gap-x-16" AlignItems="AlignItems.Center" Justify="Justify.Center">
-    <MudText Typo="Typo.h3" GutterBottom="true">Rob's Blog!</MudText>
+    <MudText Typo="Typo.h3" GutterBottom="true">Rob's Blog</MudText>
     <MudTooltip Text="Image by https://www.deviantart.com/kirokaze">
         <MudAvatar Style="height:128px; width:128px;" Alt="Image by https://www.deviantart.com/kirokaze">
             <MudImage Src="images/loading.gif"></MudImage>
@@ -16,27 +16,21 @@
     {
         string imagePath = item.Path.Replace("docs/", "").Replace(".md", ".gif");
         imagePath = System.IO.Path.Combine("https://raw.githubusercontent.com/robwillup/mithrandir/main/assets/", imagePath);
-        <MudItem Style="width:260px;height:300px">
+        string[] nameParts = item.Name.Split("@");
+        string date = DateTime.Parse(nameParts[0]).ToShortDateString();
+        string title = nameParts[1].Replace("_", " ").Replace(".md", "");
+        <MudItem Style="width:360px;height:300px">
             <MudCard>
-                <MudCardMedia Image=@imagePath Height="200" />
+                <MudCardMedia Image=@imagePath Style="width: 200px; height: 200px; margin-left: 20%" />
                 <MudCardContent>
-                    <MudText Typo="Typo.h5">@item.Name</MudText>
+                    <MudText Typo="Typo.h5">@title</MudText>
+                    <MudText>@date</MudText>
                 </MudCardContent>
                 <MudCardActions>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton>
-                    <MudButton Variant="Variant.Text" Color="Color.Primary">Read</MudButton>
+                    @* <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton> *@
+                    <MudButton Variant="Variant.Text" Color="Color.Primary" Href="@item.Url" Target="_blank">Read</MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
     }
 </MudGrid>
-
-
-@code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
-}

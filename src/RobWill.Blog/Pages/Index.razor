@@ -4,7 +4,7 @@
 <PageTitle>Index</PageTitle>
 
 <MudStack Row="true" Class="gap-x-16" AlignItems="AlignItems.Center" Justify="Justify.Center">
-    <MudText Typo="Typo.h3" GutterBottom="true">Welcome to my Blog!</MudText>
+    <MudText Typo="Typo.h3" GutterBottom="true">Welcome!</MudText>
     <MudAvatar Style="height:128px; width:128px;">
         <MudImage Src="images/GitHub_Profile.png"></MudImage>
     </MudAvatar>
@@ -12,15 +12,16 @@
 
 <MudGrid Spacing="2" Justify="Justify.Center" Class="pa-12">
     <MudItem>
-        <MudPaper Height="300px" Width="260px"/>
-    </MudItem>
-    <MudItem>
-        <MudPaper Height="300px" Width="260px"/>
-    </MudItem>
-    <MudItem>
-        <MudPaper Height="300px" Width="260px" />
-    </MudItem>
-    <MudItem>
-        <MudPaper Height="300px" Width="260px" />
+        <MudCard>
+            <MudCardMedia Image="https://media1.giphy.com/media/3mJEekHXkjSCnWGTym/giphy.gif?cid=ecf05e47n3ng070arrzuegjuy3acdb5be6o3wewzxhj4elnc&ep=v1_gifs_search&rid=giphy.gif&ct=g" Style="width: 200px; height: 200px; margin-left: 15%" />
+            <MudCardContent>
+                <MudText Typo="Typo.h5">Articles</MudText>
+                <MudText>This website is under construction</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                @* <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton> *@
+                <MudButton Variant="Variant.Text" Color="Color.Primary" Href="/blog">Go to blog page</MudButton>
+            </MudCardActions>
+        </MudCard>
     </MudItem>
 </MudGrid>
