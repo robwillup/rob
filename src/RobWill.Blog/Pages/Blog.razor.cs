@@ -1,30 +1,17 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Components;
+using RobWill.Blog.Services;
 
 namespace RobWill.Blog.Pages;
 
 public partial class Blog : IComponent
 {
     [Inject]
-    protected Config Config {get;set;} = default;
+    protected IBlogService? BlogService {get;set;}
     private List<GitHubItem> _items = new();
 
     protected override async Task OnInitializedAsync()
     {
-        _items = await GetArticles();
-    }
-
-    public async Task<List<GitHubItem>> GetArticles()
-    {
-        HttpClient client = new();
-        client.DefaultRequestHeaders.Add("Accept", "application/vnd.github+json");
-        client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Config.mithrandirPat}");
-        client.DefaultRequestHeaders.Add("X-GitHub-Api-Version", "2022-11-28");
-
-        var res = await client.GetAsync("https://api.github.com/repos/robwillup/mithrandir/contents/docs/Languages_And_Frameworks/Go/Functions");
-
-        List<GitHubItem> gitHubItems = JsonSerializer.Deserialize<List<GitHubItem>>(await res.Content.ReadAsStringAsync());
-
-        return gitHubItems;
+        _items = await BlogService.GetBlogPostsAsync();
     }
 }

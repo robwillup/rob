@@ -3,7 +3,9 @@
 
 @if (string.IsNullOrEmpty(Id) || string.IsNullOrEmpty(_content))
 {
-    @:None
+    <MudOverlay Visible="true" DarkBackground="true" AutoClose="true" ZIndex="9999">
+        <MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+    </MudOverlay>
 }
 else
 {
