@@ -13,12 +13,82 @@
     </MudTooltip>
 </MudStack>
 
-<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary" Class="pa-12">
-    <MudTabPanel Text="TL;DR"/>
-    <MudTabPanel Text="Work Experience"/>
-    <MudTabPanel Text="Skills"/>
-    <MudTabPanel Text="Projects"/>
-    <MudTabPanel Text="More"/>
+<MudTabs Elevation="2" Rounded="true" Centered="true" Class="my-6" Color="Color.Dark">
+    <MudTabPanel Icon="@Icons.Material.Filled.Bolt" Text="TL;DR">
+        <ChildContent>
+            <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
+                    <MudText Typo="Typo.h5">
+                        I'm a software engineer 🧑🏻‍💻 who specializes in backend and desktop applications 🚀.
+                        <br />
+                        <br />
+                        I also enjoy working with hardware projects 🤖 involving Raspberry Pi, Arduino and my soldering station 💥.
+                    </MudText>
+            </MudContainer>
+        </ChildContent>
+    </MudTabPanel>
+    <MudTabPanel Icon="@Icons.Material.Filled.Computer" Text="Dev Experience">
+        <ChildContent>
+            <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
+                    <MudText Typo="Typo.h5">
+                        This section is under development.
+                        <br />
+                        For now, please check my LinkedIn profile
+                        <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Size="Size.Large" Color="Color.Primary" Href="https://www.linkedin.com/in/robwillup/" Target="_blank" />
+                    </MudText>
+            </MudContainer>
+        </ChildContent>
+    </MudTabPanel>
+    <MudTabPanel Icon="@Icons.Material.Filled.Lightbulb" Text="Projects">
+        <ChildContent>
+            <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
+                    <MudText Typo="Typo.h5">
+                        Born in the 90s, I have lots good memories playing 8 and 16-bit games 🕹️.
+                        <br>
+                        So as a retro gamer 👾 I have decided to contribute as much as possible with this amazing community
+                        and came up with this project:
+                        <br>
+                        <br>
+                    </MudText>
+                    <MudNavLink Href="https://github.com/robwillup/rosy#rosy" Target="_blank">
+                        <MudImage
+                            Width="700"
+                            Src="https://repository-images.githubusercontent.com/709978523/5298bcc2-e191-46a5-a5f7-1bda2c7f8075" />
+                    </MudNavLink>
+            </MudContainer>
+        </ChildContent>
+    </MudTabPanel>
+    <MudTabPanel Icon="@Icons.Material.Filled.Star" Text="More">
+        <ChildContent>
+            <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
+                <MudText Typo="Typo.h5">
+                    I believe that the historical Jesus who lived in Nazareth around 2000 years ago is the Christ.
+                    If you want to know more about Him, I encourage you to read and check these resources. Especially the first one:
+                </MudText>
+                <MudList Clickable="true">
+                    <MudListItem Href="https://www.esv.org/" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            The Scriptures
+                        </MudText>
+                    </MudListItem>
+                    <MudListItem Href="https://www.crazylove.org/about" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            Crazy Love
+                        </MudText>
+                    </MudListItem>
+                    <MudListItem Href="https://heartcrymissionary.com/sermons/" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            Heart Cry
+                        </MudText>
+                    </MudListItem>
+                    <MudListItem Href="https://www.desiringgod.org/" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            Desiring God
+                        </MudText>
+                    </MudListItem>
+                </MudList>
+            </MudContainer>
+        </ChildContent>
+    </MudTabPanel>
 </MudTabs>
 
 @code {
