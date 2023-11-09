@@ -8,7 +8,7 @@ public partial class Blog : IComponent
 {
     [Inject]
     protected IBlogService? BlogService {get;set;}
-    private List<GitHubItem> _items = new();
+    private List<GitHubItem>? _items;
 
     protected override async Task OnInitializedAsync()
     {

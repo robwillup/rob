@@ -9,5 +9,7 @@
 }
 else
 {
-    @((MarkupString)Markdown.ToHtml(_content))
+    <MudContainer>
+        @((MarkupString)Markdown.ToHtml(_content))
+    </MudContainer>
 }

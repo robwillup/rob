@@ -2,8 +2,8 @@
 
 <PageTitle>Blog</PageTitle>
 
-<MudStack Row="true" Class="gap-x-16" AlignItems="AlignItems.Center" Justify="Justify.Center">
-    <MudText Typo="Typo.h3" GutterBottom="true">Rob's Blog</MudText>
+<MudStack Row="true" Class="gap-x-4" AlignItems="AlignItems.Center" Justify="Justify.Center">
+    <MudText Typo="Typo.h3">Rob's Blog</MudText>
     <MudTooltip Text="Image by https://www.deviantart.com/kirokaze">
         <MudAvatar Style="height:128px; width:128px;" Alt="Image by https://www.deviantart.com/kirokaze">
             <MudImage Src="images/loading.gif"></MudImage>
@@ -11,27 +11,36 @@
     </MudTooltip>
 </MudStack>
 
-<MudGrid Spacing="2" Justify="Justify.Center" Class="pa-12">
-    @foreach(GitHubItem item in _items)
-    {
-        string imagePath = item.Path.Replace("docs/", "").Replace(".md", ".gif");
-        imagePath = System.IO.Path.Combine("https://raw.githubusercontent.com/robwillup/mithrandir/main/assets/", imagePath);
-        string[] nameParts = item.Name.Split("@");
-        string date = DateTime.Parse(nameParts[0]).ToShortDateString();
-        string title = nameParts[1].Replace("_", " ").Replace(".md", "");
-        string encodedPath = System.Web.HttpUtility.UrlEncode(item.Path);
-        <MudItem Style="width:360px;height:300px">
-            <MudCard>
-                <MudCardMedia Image=@imagePath Style="width: 200px; height: 200px; margin-left: 20%" />
-                <MudCardContent>
-                    <MudText Typo="Typo.h5">@title</MudText>
-                    <MudText>@date</MudText>
-                </MudCardContent>
-                <MudCardActions>
-                    @* <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton> *@
-                    <MudButton Variant="Variant.Text" Color="Color.Primary" Href=@($"/blog/article?Id={encodedPath}")>Read</MudButton>
-                </MudCardActions>
-            </MudCard>
-        </MudItem>
-    }
-</MudGrid>
+@if(_items == null)
+{
+    <MudOverlay Visible="true" DarkBackground="true" AutoClose="true" ZIndex="9999">
+        <MudProgressCircular Color="Color.Secondary" Indeterminate="true" />
+    </MudOverlay>
+}
+else
+{
+    <MudGrid Spacing="2" Justify="Justify.Center" Class="pa-12">
+        @foreach(GitHubItem item in _items)
+        {
+            string imagePath = item.Path.Replace("docs/", "").Replace(".md", ".gif");
+            imagePath = System.IO.Path.Combine("https://raw.githubusercontent.com/robwillup/mithrandir/main/assets/", imagePath);
+            string[] nameParts = item.Name.Split("@");
+            string date = DateTime.Parse(nameParts[0]).ToShortDateString();
+            string title = nameParts[1].Replace("_", " ").Replace(".md", "");
+            string encodedPath = System.Web.HttpUtility.UrlEncode(item.Path);
+            <MudItem Style="width:360px;height:300px">
+                <MudCard>
+                    <MudCardMedia Image=@imagePath Style="width: 200px; height: 200px; margin-left: 20%" />
+                    <MudCardContent>
+                        <MudText Typo="Typo.h5">@title</MudText>
+                        <MudText>@date</MudText>
+                    </MudCardContent>
+                    <MudCardActions>
+                        @* <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton> *@
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Href=@($"/blog/article?Id={encodedPath}")>Read</MudButton>
+                    </MudCardActions>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+}
