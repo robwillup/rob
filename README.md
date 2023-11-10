@@ -1,8 +1,8 @@
-# Robson William's Personal Website
+# Rob's Blog
 
-This is the source code for my personal website ([www.robwillup.com](https://www.robwillup.com)).
+This is the source code for my blog and website ([www.robwillup.com](https://www.robwillup.com)).
 
-The website is a [Blazor WASM](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) app.
+It's built with [Blazor WASM](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) app.
 
 ## Blog section
 
