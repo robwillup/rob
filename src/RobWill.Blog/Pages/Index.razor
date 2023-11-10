@@ -1,27 +1,14 @@
 ﻿@page "/"
-@inject Config Config
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Blog</PageTitle>
 
 <MudStack Row="true" Class="gap-x-4" AlignItems="AlignItems.Center" Justify="Justify.Center">
-    <MudText Typo="Typo.h3" GutterBottom="true">Welcome to my Blog!</MudText>
+    <MudText Typo="Typo.h3">Rob's Blog</MudText>
+    <MudTooltip Text="Image by https://www.deviantart.com/kirokaze">
+        <MudAvatar Style="height:128px; width:128px;">
+            <MudImage Src="images/loading.gif" Alt="Image by https://www.deviantart.com/kirokaze"></MudImage>
+        </MudAvatar>
+    </MudTooltip>
 </MudStack>
 
-<MudGrid Spacing="2" Justify="Justify.Center" Class="pa-12">
-    <MudItem>
-        <MudCard>
-            <MudCardMedia
-                Image="https://media1.giphy.com/media/3mJEekHXkjSCnWGTym/giphy.gif?cid=ecf05e47n3ng070arrzuegjuy3acdb5be6o3wewzxhj4elnc&ep=v1_gifs_search&rid=giphy.gif&ct=g"
-                Style="" />
-            <MudCardContent>
-                <MudText Typo="Typo.h5">Articles</MudText>
-                <MudText>This website is under development.</MudText>
-                <MudText>But there might be a blog post for you to check out...</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                @* <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton> *@
-                <MudButton Variant="Variant.Text" Color="Color.Primary" Href="/blog">Go to blog page</MudButton>
-            </MudCardActions>
-        </MudCard>
-    </MudItem>
-</MudGrid>
+<BlogPosts />
