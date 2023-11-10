@@ -1,16 +1,3 @@
-﻿@page "/blog"
-
-<PageTitle>Blog</PageTitle>
-
-<MudStack Row="true" Class="gap-x-4" AlignItems="AlignItems.Center" Justify="Justify.Center">
-    <MudText Typo="Typo.h3">Rob's Blog</MudText>
-    <MudTooltip Text="Image by https://www.deviantart.com/kirokaze">
-        <MudAvatar Style="height:128px; width:128px;" Alt="Image by https://www.deviantart.com/kirokaze">
-            <MudImage Src="images/loading.gif"></MudImage>
-        </MudAvatar>
-    </MudTooltip>
-</MudStack>
-
 @if(_items == null)
 {
     <MudOverlay Visible="true" DarkBackground="true" AutoClose="true" ZIndex="9999">
@@ -37,10 +24,24 @@ else
                     </MudCardContent>
                     <MudCardActions>
                         @* <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton> *@
-                        <MudButton Variant="Variant.Text" Color="Color.Primary" Href=@($"/blog/article?Id={encodedPath}")>Read</MudButton>
+                        <MudButton Variant="Variant.Text" Color="Color.Primary" Href=@($"/article?Id={encodedPath}")>Read</MudButton>
                     </MudCardActions>
                 </MudCard>
             </MudItem>
         }
     </MudGrid>
+}
+
+@code {
+    [Parameter]
+    public int Max { get; set; }
+
+    [Inject]
+    protected Services.IBlogService? BlogService {get;set;}
+    private List<GitHubItem>? _items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _items = await BlogService.GetBlogPostsAsync();
+    }
 }

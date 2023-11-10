@@ -1,10 +1,9 @@
-using System.Text.Json;
 using Microsoft.AspNetCore.Components;
 using RobWill.Blog.Services;
 
 namespace RobWill.Blog.Pages;
 
-public partial class Blog : IComponent
+public partial class Index : IComponent
 {
     [Inject]
     protected IBlogService? BlogService {get;set;}
