@@ -8,12 +8,9 @@
     <MudAppBar Elevation="0">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         <MudSpacer />
-        <MudIcon Icon="@Icons.Material.Filled.WbSunny"/>
-        <MudSwitch @bind-Checked="@_isDarkMode" Color="Color.Primary" Class="ma-4" T="bool"/>
-        <MudIcon Icon="@Icons.Material.Filled.Nightlight"/>
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Color="Color.Inherit" Href="https://www.linkedin.com/in/robwillup/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Href="https://github.com/robwillup/" Target="_blank" />
+        <MudButton @onclick="ToggleTheme">
+            <MudIcon Icon="@_icon"/>
+        </MudButton>
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
         <MudDrawerHeader>
@@ -32,10 +29,18 @@
     bool _drawerOpen = true;
 
     private MudTheme _theme = new();
-    private bool _isDarkMode;
+    private bool _isDarkMode = true;
+
+    private string _icon =  Icons.Material.Filled.WbSunny;
 
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
+    }
+
+    void ToggleTheme()
+    {
+        _isDarkMode = !_isDarkMode;
+        _icon = _isDarkMode ? Icons.Material.Filled.WbSunny : Icons.Material.Filled.Nightlight;
     }
 }
