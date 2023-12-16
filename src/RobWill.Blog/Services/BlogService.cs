@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using System.Text.Json;
 
 namespace RobWill.Blog.Services;
@@ -22,12 +23,20 @@ public class BlogService : IBlogService
             _httpClient.DefaultRequestHeaders.Add("X-GitHub-Api-Version", "2022-11-28");
 
             HttpResponseMessage res = await _httpClient.GetAsync("docs/Languages_And_Frameworks/Go/Functions");
+            HttpResponseMessage resEthicalHacking = await _httpClient.GetAsync("docs/Ethical_Hacking");
 
             res.EnsureSuccessStatusCode();
+            resEthicalHacking.EnsureSuccessStatusCode();
 
             string content = await res.Content.ReadAsStringAsync();
+            string ethicalHackingContent = await resEthicalHacking.Content.ReadAsStringAsync();
 
             List<GitHubItem> gitHubItems = JsonSerializer.Deserialize<List<GitHubItem>>(content) ?? new();
+            List<GitHubItem> ethicalHackingItems = JsonSerializer.Deserialize<List<GitHubItem>>(ethicalHackingContent) ?? new();
+
+            gitHubItems.AddRange(ethicalHackingItems);
+
+            Console.WriteLine(JsonSerializer.Serialize(gitHubItems));
 
             return gitHubItems;
         }

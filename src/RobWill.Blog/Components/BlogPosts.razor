@@ -10,6 +10,12 @@ else
         @foreach(GitHubItem item in _items)
         {
             string imagePath = item.Path.Replace("docs/", "").Replace(".md", ".gif");
+
+            if (imagePath.Contains("Ethical_Hacking"))
+            {
+                imagePath = imagePath.Replace(".gif", ".jpeg");
+            }
+
             imagePath = System.IO.Path.Combine("https://raw.githubusercontent.com/robwillup/mithrandir/main/assets/", imagePath);
             string[] nameParts = item.Name.Split("@");
             string date = DateTime.Parse(nameParts[0]).ToShortDateString();
