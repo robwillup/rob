@@ -1,5 +1,6 @@
 ﻿@page "/about"
 @inject HttpClient Http
+@inject NavigationManager _navigationManager
 @using RobWill.Blog.Shared
 
 <PageTitle>About Me</PageTitle>
@@ -30,11 +31,24 @@
         <ChildContent>
             <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
                     <MudText Typo="Typo.h5">
-                        This section is under development.
+                        Enthusiast for technology and a professional software engineer with several years of experience.
                         <br />
-                        For now, please check my LinkedIn profile
-                        <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Size="Size.Large" Color="Color.Primary" Href="https://www.linkedin.com/in/robwillup/" Target="_blank" />
+                        <br />
                     </MudText>
+                    <MudButton Href="https://www.linkedin.com/in/robwillup/"
+                            Target="_blank"
+                            Variant="Variant.Filled"
+                            EndIcon="@Icons.Custom.Brands.LinkedIn"
+                            Color="Color.Primary">
+                        LinkedIn Profile
+                    </MudButton>
+                    <MudButton Href="https://drive.google.com/file/d/17jdRgEmipZzBNj7LzQwWvYf4vkOGp728/view"
+                            Target="_blank"
+                            Variant="Variant.Filled"
+                            EndIcon="@Icons.Material.Filled.ContactPage"
+                            Color="Color.Primary">
+                        View Resume
+                    </MudButton>
             </MudContainer>
         </ChildContent>
     </MudTabPanel>
