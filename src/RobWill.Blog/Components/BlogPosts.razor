@@ -46,8 +46,8 @@ else
     protected Services.IBlogService? BlogService {get;set;}
     private List<GitHubItem>? _items;
 
-    protected override async Task OnInitializedAsync()
+    @* protected override async Task OnInitializedAsync()
     {
         _items = await BlogService.GetBlogPostsAsync();
-    }
+    } *@
 }

@@ -3,12 +3,89 @@
 <PageTitle>Blog</PageTitle>
 
 <MudStack Row="true" Class="gap-x-4" AlignItems="AlignItems.Center" Justify="Justify.Center">
-    <MudText Typo="Typo.h3">Rob's Blog</MudText>
+    <MudText Typo="Typo.h3">Seguindo Jesus Christo</MudText>
     <MudTooltip Text="Image by https://www.deviantart.com/kirokaze">
-        <MudAvatar Style="height:128px; width:128px;">
-            <MudImage Src="images/loading.gif" Alt="Image by https://www.deviantart.com/kirokaze"></MudImage>
+        <MudAvatar Style="height:256px; width:256px;">
+            <MudImage Src="https://images.unsplash.com/photo-1541346183200-e8e117d945dd?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></MudImage>
         </MudAvatar>
     </MudTooltip>
 </MudStack>
 
-<BlogPosts />
+<MudTabs Elevation="2" Rounded="true" Centered="true" Class="my-6" Color="Color.Dark">
+    <MudTabPanel Icon="@Icons.Material.Filled.Bolt" Text="Por que?">
+        <ChildContent>
+            <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
+                    <MudText Typo="Typo.h5">
+                        Todos nós somos pecadores e Deus é perfeitamente santo.
+                        O próprio Deus nos ensina que a punição para o pecado é a morte eterna.
+                    </MudText>
+            </MudContainer>
+        </ChildContent>
+    </MudTabPanel>
+    <MudTabPanel Icon="@Icons.Material.Filled.Computer" Text="A boa notícia">
+        <ChildContent>
+            <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
+                    <MudText Typo="Typo.h5">
+                        Deus é justo e por isso deve punir o pecador.
+                        Porém Deus também nos amou e enviour Seu único Filho, Jesus Cristo,
+                        para que Ele fosse punido em nosso lugar.
+                        Após ter morrido e sido sepultado por nós, o Senhor Jesus ressucitou e subiu aos céus.
+                        Agora todo aquele que crer em Cristo, passa da morte para a vida e terá vida eterna com Ele.
+                        <br />
+                        <br />
+                    </MudText>
+            </MudContainer>
+        </ChildContent>
+    </MudTabPanel>
+    <MudTabPanel Icon="@Icons.Material.Filled.Lightbulb" Text="Nova vida">
+        <ChildContent>
+            <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
+                    <MudText Typo="Typo.h5">
+                        Jesus Cristo é Salvador e muito mais. Ele também é Senhor.
+                        <br>
+                        Após nascer de novo, o crente recebe o sublime e maravilhoso Espírito Santo.
+                        <br>
+                        O qual impulsiona o crente a viver exclusivamente para seu Senhor Jesus.
+                    </MudText>
+            </MudContainer>
+        </ChildContent>
+    </MudTabPanel>
+    <MudTabPanel Icon="@Icons.Material.Filled.Star" Text="Mais">
+        <ChildContent>
+            <MudContainer MaxWidth="MaxWidth.Medium" Style="padding-top: 30px">
+                <MudText Typo="Typo.h5">
+                    Você encontrará mais recursos nos sites abaixo:
+                </MudText>
+                <MudList Clickable="true">
+                    <MudListItem Href="https://www.esv.org/" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            The Scriptures
+                        </MudText>
+                    </MudListItem>
+                    <MudListItem Href="https://www.cristoemnos.com.br/" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            Cristo em nós
+                        </MudText>
+                    </MudListItem>
+                    <MudListItem Href="https://www.crazylove.org/about" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            Crazy Love
+                        </MudText>
+                    </MudListItem>
+                    <MudListItem Href="https://heartcrymissionary.com/sermons/" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            Heart Cry
+                        </MudText>
+                    </MudListItem>
+                    <MudListItem Href="https://www.desiringgod.org/" Target="_blank" Icon="@Icons.Material.Filled.PlayArrow">
+                        <MudText>
+                            Desiring God
+                        </MudText>
+                    </MudListItem>
+                </MudList>
+            </MudContainer>
+        </ChildContent>
+    </MudTabPanel>
+</MudTabs>
+
+@* <BlogPosts /> *@
