@@ -1,7 +1,7 @@
 using System.Reflection.Metadata;
 using System.Text.Json;
 
-namespace RobWill.Blog.Services;
+namespace InJesusWeLive.Services;
 
 public class BlogService : IBlogService
 {

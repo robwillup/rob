@@ -1,4 +1,4 @@
-namespace RobWill.Blog;
+namespace InJesusWeLive;
 
 public class Config
 {

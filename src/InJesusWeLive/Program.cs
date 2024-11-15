@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using RobWill.Blog;
+using InJesusWeLive;
 using MudBlazor.Services;
-using RobWill.Blog.Services;
+using InJesusWeLive.Services;
 using MudBlazor;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);

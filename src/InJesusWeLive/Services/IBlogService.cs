@@ -1,4 +1,4 @@
-namespace RobWill.Blog.Services;
+namespace InJesusWeLive.Services;
 
 public interface IBlogService
 {

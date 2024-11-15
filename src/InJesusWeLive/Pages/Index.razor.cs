@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components;
-using RobWill.Blog.Services;
+using InJesusWeLive.Services;
 
-namespace RobWill.Blog.Pages;
+namespace InJesusWeLive.Pages;
 
 public partial class Index : IComponent
 {

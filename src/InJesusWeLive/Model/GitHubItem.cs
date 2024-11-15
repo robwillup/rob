@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace RobWill.Blog;
+namespace InJesusWeLive;
 
 public class GitHubItem
 {

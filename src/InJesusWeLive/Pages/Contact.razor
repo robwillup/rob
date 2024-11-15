@@ -1,0 +1,61 @@
+﻿@page "/contact"
+@inject HttpClient Http
+@using InJesusWeLive.Shared
+
+<PageTitle>Contato</PageTitle>
+
+<MudStack Row="true" Class="gap-x-4" AlignItems="AlignItems.Center" Justify="Justify.Center">
+    <MudText Typo="Typo.h3" GutterBottom="true">Say Hi</MudText>
+    <MudTooltip Text="Image by https://www.deviantart.com/doa687">
+        <MudAvatar Style="height:128px; width:128px;">
+            <MudImage Src="images/sonic-highfive.gif" Alt="Image by https://www.deviantart.com/doa687" />
+        </MudAvatar>
+    </MudTooltip>
+</MudStack>
+
+<MudGrid Spacing="3" Justify="Justify.Center" Class="pa-12">
+    <MudItem>
+        <MudCard>
+            <MudCardMedia
+                Image="https://images.unsplash.com/photo-1554755209-85e44182e019?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+            <MudCardContent>
+                <MudText Typo="Typo.subtitle1"><cite>"Não abandonemos a prática de nos reunir, como é costume de alguns,
+                        mas, pelo contrário,
+                        <br />animemo-nos uns aos outros, quanto mais vedes que o Dia se aproxima"</cite> - Hb 10:25
+                    (Almeida Século 21)</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Primary" Href="https://www.cristoemnos.com.br/">
+                    www.cristoemnos.com.br</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem>
+        <MudCard Style="width:100%;">
+            <MudCardMedia Image="images/LI-In-Bug.png" Style="width:235px;height:200px;" />
+            <MudCardContent>
+                <MudText Typo="Typo.subtitle1">Software Engineer | Azure | .NET | Go | DevOps | Microservices</MudText>
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Variant="Variant.Text" Color="Color.Primary" Href="@MailToLink">Contact Me</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@code {
+    private ContactFormData formData = new ContactFormData();
+
+    // Dynamically generate the mailto link
+    private string MailToLink =>
+    $"mailto:your-email@example.com?subject=Contact%20Request&body=Name:%20{Uri.EscapeDataString(formData.Name)}%0D%0A" +
+    $"Email:%20{Uri.EscapeDataString(formData.Email)}%0D%0A" +
+    $"Message:%20{Uri.EscapeDataString(formData.Message)}";
+
+    private class ContactFormData
+    {
+        public string Name { get; set; } = "John Doe"; // Default placeholder value
+        public string Email { get; set; } = "johndoe@example.com"; // Default placeholder value
+        public string Message { get; set; } = "Hello! I'd like to connect with you."; // Default message
+    }
+}
