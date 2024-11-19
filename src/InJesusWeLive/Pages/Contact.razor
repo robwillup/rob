@@ -34,7 +34,7 @@
         <MudCard Style="width:100%;">
             <MudCardMedia Image="images/LI-In-Bug.png" Style="width:235px;height:200px;" />
             <MudCardContent>
-                <MudText Typo="Typo.subtitle1">Software Engineer | Azure | .NET | Go | DevOps | Microservices</MudText>
+                <MudText Typo="Typo.subtitle1">Entre em contato</MudText>
             </MudCardContent>
             <MudCardActions>
                 <MudButton Variant="Variant.Text" Color="Color.Primary" Href="@MailToLink">Contact Me</MudButton>
@@ -48,14 +48,12 @@
 
     // Dynamically generate the mailto link
     private string MailToLink =>
-    $"mailto:your-email@example.com?subject=Contact%20Request&body=Name:%20{Uri.EscapeDataString(formData.Name)}%0D%0A" +
-    $"Email:%20{Uri.EscapeDataString(formData.Email)}%0D%0A" +
-    $"Message:%20{Uri.EscapeDataString(formData.Message)}";
+    $"mailto:injesuswelive.org@outlook.com?subject=Contato%20sobre%20seguir%20Jesus&body=Nome:%20{Uri.EscapeDataString(formData.Name)}%0D%0A" +
+    $"Mensagem:%20{Uri.EscapeDataString(formData.Message)}";
 
     private class ContactFormData
     {
-        public string Name { get; set; } = "John Doe"; // Default placeholder value
-        public string Email { get; set; } = "johndoe@example.com"; // Default placeholder value
-        public string Message { get; set; } = "Hello! I'd like to connect with you."; // Default message
+        public string Name { get; set; } = ""; // Default placeholder value
+        public string Message { get; set; } = "Olá! quero seguir a Jesus Cristo ..."; // Default message
     }
 }
