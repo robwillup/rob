@@ -22,7 +22,7 @@ jobs:
       - name: Add token for public pages
         run: |
           export PUBLIC_PAT=${{ secrets.MITHRANDIR_PUBLIC_TOKEN }}
-          sed -i "s/PUBLIC_PAT/$PUBLIC_PAT/g" src/InJesusWeLive/wwwroot/appsettings.json
+          sed -i "s/mithrandirPublicAccessInfoValue/$PUBLIC_PAT/g" src/InJesusWeLive/wwwroot/appsettings.json
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
