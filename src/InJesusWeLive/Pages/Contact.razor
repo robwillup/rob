@@ -4,37 +4,45 @@
 
 <PageTitle>Contato</PageTitle>
 
-<MudGrid Spacing="3" Justify="Justify.Center" Class="pa-12">
+<MudGrid Spacing="3" Justify="Justify.Center">
     <MudItem>
         <MudCard Style="width:100%">
-            <MudCardMedia
+            <MudCardMedia Style="width: 400px; height: 200px;"
                 Image="https://images.unsplash.com/photo-1554755209-85e44182e019?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-            <MudCardContent>
-                <MudText Typo="Typo.subtitle1"><cite>"Não abandonemos a prática de nos reunir, como é costume de alguns,
+            <MudCardContent Style="width: 400px">
+                <MudText Typo="Typo.body2"><cite>"Não abandonemos a prática de nos reunir, como é costume de alguns,
                         mas, pelo contrário,
                         <br />animemo-nos uns aos outros, quanto mais vedes que o Dia se aproxima"</cite> - Hb 10:25
                     (Almeida Século 21)</MudText>
             </MudCardContent>
             <MudCardActions>
-                <MudButton Variant="Variant.Outlined" Color="Color.Info" Href="https://www.cristoemnos.com.br/">
-                    <MudIcon Icon="@Icons.Material.Filled.Language" />
-                    www.cristoemnos.com.br
+                <MudButton Variant="Variant.Filled" Color="Color.Info" Href="https://www.cristoemnos.com.br/" Target="_blank"
+                    Style="width: 250px; display: flex; justify-content: flex-start; align-items: center;">
+                    <MudIcon Icon="fas fa-globe" Style="margin-right: 10px"/>
+                    cristoemnos.com.br
                 </MudButton>
             </MudCardActions>
             <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Info" Target="_blank" Href="@MailToLink"
-                    Style="font-size: xx-small;">
-                    <MudIcon Icon="@Icons.Material.Filled.Email" />
-                    &nbsp;injesuswelive@outlook.com
+                <MudButton Variant="Variant.Filled" Color="Color.Info" Href="@youTubeLink" Target="_blank"
+                    Style="width: 250px; display: flex; justify-content: flex-start; align-items: center;">
+                    <MudIcon Icon="fab fa-youtube" Style="margin-right: 10px"/>
+                    Cristo em Nós
                 </MudButton>
             </MudCardActions>
-
+            <MudCardActions>
+                <MudButton Variant="Variant.Filled" Color="Color.Info" Href="@MailToLink" Target="_blank"
+                    Style="width: 250px; display: flex; justify-content: flex-start; align-items: center;">
+                    <MudIcon Icon="@Icons.Material.Filled.Email" Style="margin-right: 10px" />
+                    Email
+                </MudButton>
+            </MudCardActions>
         </MudCard>
     </MudItem>
 </MudGrid>
 
 @code {
     private ContactFormData formData = new ContactFormData();
+    public string youTubeLink = "https://www.youtube.com/@cristoemnos-aservicodocorp9538";
 
     // Dynamically generate the mailto link
     private string MailToLink =>
@@ -45,6 +53,6 @@
     private class ContactFormData
     {
         public string Name { get; set; } = ""; // Default placeholder value
-        public string Message { get; set; } = "Olá! quero seguir a Jesus Cristo ..."; // Default message
+        public string Message { get; set; } = "Olá! quero seguir a Jesus Cristo ...";
     }
 }
